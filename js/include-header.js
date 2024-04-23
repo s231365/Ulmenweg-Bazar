@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     };
-    xhr.open("GET", "partial/header.html", true);
+    xhr.open("GET", "header.html", true);
     xhr.send();
 });
