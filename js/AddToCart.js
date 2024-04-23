@@ -12,3 +12,5 @@ document.getElementById('addToCartBtn').addEventListener('click', function () {
     // Optionally, provide feedback to the user
     alert('Item added to cart!');
 });
+
+
