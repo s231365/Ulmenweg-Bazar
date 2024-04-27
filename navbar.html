@@ -1,55 +1,61 @@
 <!--Nav bar-->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <div class="container-fluid">
-    <div class="col-1">
-      <a class="navbar-brand" href="home.html">
-        <img class="img-fluid" src="/img/bazar.png" alt="Bazar Logo">
+    <div class="container-fluid">
+        <div class="col-1">
+            <a class="navbar-brand" href="home.html">
+                <img class="img-fluid" src="/img/bazar.png" alt="Bazar Logo">
 
-      </a>
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                </li>
+
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                       aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <li><a class="dropdown-item" href="#">Kitchen</a></li>
+                        <li><a class="dropdown-item" href="#">Tickets</a></li>
+                        <li><a class="dropdown-item" href="#">Electronics</a></li>
+                        <li><a class="dropdown-item" href="#">Furniture</a></li>
+                        <li><a class="dropdown-item" href="#">Sublet</a></li>
+                        <li><a class="dropdown-item" href="#">Outdoor</a></li>
+                        <li><a class="dropdown-item" href="#">Give Away</a></li>
+                        <li><a class="dropdown-item" href="#">Other</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-secondary mx-2" type="submit">Search</button>
+                    </form>
+
+
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="checkout.html">Warenkorb<span class="badge"
+                                                                                                       id="itemCount">0</span></a>
+                </li>
+
+
+            </ul>
+
+            <button class="btn btn-outline-secondary mx-2" type="submit">LogIn</button>
+
+        </div>
     </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">About Us</a>
-        </li>
-
-
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-          <ul class="dropdown-menu" aria-labelledby="dropdown01">
-            <li><a class="dropdown-item" href="#">Kitchen</a></li>
-            <li><a class="dropdown-item" href="#">Tickets</a></li>
-            <li><a class="dropdown-item" href="#">Electronics</a></li>
-          </ul>
-        </li>
-        <li>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary mx-2" type="submit">Search</button>
-          </form>
-
-
-        </li>
-
-        <li class="nav-item ">
-          <a class="nav-link active" aria-current="page" href="checkout.html">Warenkorb</a>
-        </li>
-
-
-
-      </ul>
-
-      <button class="btn btn-outline-secondary mx-2" type="submit">LogIn</button>
-
-
-
-
-    </div>
-  </div>
 </nav>
+
+
 
