@@ -1,0 +1,23 @@
+.navbar-logo {
+    /* Set a maximum width for the logo */
+    max-width: 80px; /* Adjust this value as needed */
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .navbar-logo {
+        /* Increase the size of the logo for larger screens */
+        max-width: 120px; /* Adjust this value as needed */
+    }
+}
+
+/* Center the logo vertically within the navbar */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Adjust logo position */
+.navbar-brand img {
+    margin-right: 10px; /* Adjust the right margin as needed */
+}
