@@ -1428,7 +1428,8 @@ pre {
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #4E5D6C;
-    opacity: 1; }
+    opacity: 1;
+    color: #fff;}
 
 input[type="date"].form-control,
 input[type="time"].form-control,

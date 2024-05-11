@@ -5,6 +5,7 @@ function loadNavbarAndFooter() {
         if (navbarXhr.readyState === XMLHttpRequest.DONE) {
             if (navbarXhr.status === 200) {
                 document.getElementById("navbar-placeholder").innerHTML = navbarXhr.responseText;
+                updateCartItemCount()
             } else {
                 console.error('Error loading navbar:', navbarXhr.status);
             }
@@ -26,6 +27,25 @@ function loadNavbarAndFooter() {
     };
     footerXhr.open("GET", "footer.html", true);
     footerXhr.send();
+}
+
+function updateCartItemCount() {
+    // Retrieve the cart items from local storage
+    let cartItemsString = localStorage.getItem('cartItems');
+
+    // Parse the JSON string back into a JavaScript object
+    let cartItems = JSON.parse(cartItemsString);
+
+    // Initialize item count
+    let itemCount = 0;
+
+    // Check if cartItems exists and get its length
+    if (cartItems) {
+        itemCount = Object.keys(cartItems).length;
+
+        // Update the item count displayed in the badge
+        document.getElementById('itemCount').textContent = itemCount;
+    }
 }
 
 // Call the function to load navbar and footer

@@ -5,14 +5,13 @@
     <a class="navbar-brand" href="home.html">
       <!-- Set a class for the logo image -->
       <img class="img-fluid navbar-logo" src="/img/bazar.png" alt="Bazar Logo">
-
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">About Us</a>
@@ -27,21 +26,17 @@
             <li><a class="dropdown-item" href="#">Electronics</a></li>
           </ul>
         </li>
-        <li>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary mx-2" type="submit">Search</button>
-          </form>
+      </ul>
 
+      <form class="d-flex flex-grow-1 justify-content-center">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary mx-2" type="submit">Search</button>
+      </form>
 
-        </li>
-
+      <ul class="navbar-nav mb-2 mb-md-0">
         <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="checkout.html">Warenkorb</a>
         </li>
-
-
-
       </ul>
 
       <button class="btn btn-outline-secondary mx-2" type="submit">LogIn</button>
