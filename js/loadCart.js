@@ -1,4 +1,3 @@
-// loadCart.js
 
 // Function to load cart items
 function loadCart() {
@@ -15,28 +14,35 @@ function loadCart() {
     let template = Handlebars.compile(templateSource);
 
     // Render the template with the cartItems data and insert it into the HTML
-    document.querySelector('.container').innerHTML += template({cartItems: cartItems});
 
-    // Display a message if the cart is empty
-    if (!cartItems || cartItems.length === 0) {
-        document.querySelector('.container').innerHTML += '<p>Your cart is empty.</p>';
-    }
+    document.getElementById('cart-items').innerHTML += template({cartItems: cartItems});
 
+    // Calculate total price and display it
     let totalPrice = 0;
 
-
     // Iterate through each item in the cart and calculate total price
-    Object.values(cartItems).forEach(item => {
-        totalPrice += parseFloat(item.price);
-    });
-
+    if (cartItems && Object.keys(cartItems).length) {
+        Object.values(cartItems).forEach(item => {
+            totalPrice += parseFloat(item.price);
+        });
+    }
 
     // Display the total price in the HTML
-    document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+    let totalPriceElement = document.getElementById('total-price');
+    let checkoutButton = document.getElementById('checkout');
+    let emptyCartMessage = document.getElementById('empty-cart');
 
+    if (cartItems && Object.keys(cartItems).length > 0) {
+        // If cart is not empty
+        totalPriceElement.innerText = totalPrice.toFixed(2);
+        checkoutButton.style.display = 'block';
+        emptyCartMessage.style.display = 'none';
+    } else {
+        // If cart is empty
+        checkoutButton.style.display = 'none';
+        emptyCartMessage.style.display = 'block';
+    }
 }
-
-
 
 // Function to delete an item from the cart
 function deleteItem(indexToDelete) {
@@ -60,7 +66,6 @@ function deleteItem(indexToDelete) {
 
     // Reload the cart section to reflect the changes
     loadCart();
-
-
     location.reload();
 }
+

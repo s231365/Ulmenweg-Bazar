@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Overview</title>
+    <title>product</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/AddToCart.js"></script>
 
 
 </head>
 <body>
 
-<script src="js/AddToCart.js"></script>
+
 <!-- Load Header script -->
 <script src="js/include-navbar-and-footer.js"></script>
 
@@ -20,31 +22,35 @@
 <div id="navbar-placeholder"></div>
 
 <section class="py-5">
-<div id="nav-placeholder"></div>
-<main class="container">
-    <div class="row">
-        <h2>Title</h2>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <section class="py-5 my-4">
+            <div class="row">
+                <h2>Title</h2>
 
 
-    </div>
-    <form class="row my-4">
-        <div class="col-8">
-            <img class="img-fluid"  src="/img/bazar.png" alt="Bazar Logo">
-        </div>
-        <div class="col-4 needs-validation" >
-            <h3>Price</h3>
-            <button id="addToCartBtn" class="btn btn-primary w-100" type="submit">Add to cart</button>
-        </div>
-    </form>
-    <div class="row">
-        <h2>tags, facts</h2>
-    </div>
-    <div class="row">
-        <h2>Description</h2>
-    </div>
+            </div>
 
+            <form class="row">
+                <div class="col-8">
+                    <img class="img-fluid" src="/img/bazar.png" alt="Bazar Logo">
+                </div>
+                <div class="col-4 needs-validation">
+                    <h3>Price</h3>
+                    <button id="addToCartBtn" class="btn btn-primary w-100" type="submit" onclick="addToCart()">Add to
+                        cart
+                    </button>
+                </div>
+            </form>
+            <div class="row">
+                <h2>tags, facts</h2>
+            </div>
+            <div class="row">
+                <h2>Description</h2>
+            </div>
 
-</main>
+        </section>
+    </main>
 </section>
 <!-- Footer-->
 <div id="footer-placeholder"></div>

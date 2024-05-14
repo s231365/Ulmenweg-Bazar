@@ -3,26 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>Checkout</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
+    <script src="js/AddToCart.js"></script>
+    <!-- Load Header script -->
+    <script src="js/include-navbar-and-footer.js"></script>
+    <script src="js/form-validation.js"></script>
     <link href="css/custom.css" rel="stylesheet">
 
 
 </head>
 <body onload="loadCart()">
-<!-- Load Navbar script -->
-<script src="js/include-navbar-and-footer.js"></script>
 
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
 <section class="py-5">
-    <div class="container">
-        <main>
+    <main>
+        <div class="container">
             <div class="py-5 text-center">
-
                 <h2>Checkout form</h2>
             </div>
 
@@ -30,35 +32,35 @@
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Your cart</span>
-                        <span class="badge bg-primary rounded-pill" id="itemCount"></span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </h4>
-                    <script id="product-template" type="text/x-handlebars-template">
-                        <ul class="list-group mb-3">
-                            {{#each cartItems }}
-                                <li class="list-group-item d-flex justify-content-between lh-sm">
-                                    <div>
-                                        <h6 class="my-0">{{this.name}}</h6>
-                                        <small class="text-muted"></small>
-                                    </div>
-                                    <span class="text-muted">{{this.prize}}</span>
+                    <div id="cart-items">
+                        <script id="product-template" type="text/x-handlebars-template">
+                            <ul class="list-group mb-3">
+                                {{#each cartItems}}
+
+
+                                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                                        <div>
+                                            <h6 class="my-0">{{this.name}}</h6>
+                                            <small class="text-muted"></small>
+                                        </div>
+                                        <span class="text-muted">{{this.price}}€</span>
+                                    </li>
+                                {{/each}}
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div><h4>Total Price: <strong><span id="total-price"></span></strong>€</h4></div>
                                 </li>
-                            {{/each}}
-                        </ul>
+                            </ul>
 
-                        <div class="container my-4">
-                            <!-- Display total price -->
-                            <div><h4>Total Price: <span id="total-price"></span>€</h4></div>
-                        </div>
-                    </script>
 
-                    <form class="card p-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </form>
+                        </script>
+
+                    </div>
+
+
                 </div>
-                <div class="col-md-7 col-lg-8">
+                     <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Customer information</h4>
                     <form class="needs-validation" novalidate>
                         <div class="row g-3">
@@ -88,6 +90,7 @@
                             </div>
 
                             <div class="col-12">
+
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" value="Ulmenweg 55, 68167 Mannheim"
                                        readonly data-bs-toggle="tooltip"
@@ -130,6 +133,7 @@
                                 <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
                                        value="credit" checked required>
                                 <label class="form-check-label" for="credit">Credit card</label>
+
                             </div>
 
                             <div class="form-check">
@@ -142,8 +146,8 @@
                                 <input id="cash" name="paymentMethod" type="radio" class="form-check-input" value="cash"
                                        required>
                                 <label class="form-check-label" for="cash">Cash</label>
+
                             </div>
-                        </div>
 
                         <div class="row gy-3 card-info">
                             <div class="col-12">
@@ -166,14 +170,17 @@
                                 <label for="cc-expiration" class="form-label">Expiration</label>
                                 <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY"
                                        inputmode="numeric" required>
+
                                 <div class="invalid-feedback">
                                     Expiration date required
                                 </div>
                             </div>
+
                             <div class="col-sm-6">
                                 <label for="cc-cvv" class="form-label">CVV</label>
                                 <input type="text" class="form-control" id="cc-cvv" placeholder="" inputmode="numeric"
                                        pattern="[0-9]{3}" required>
+
                                 <div class="invalid-feedback">
                                     Security code required
                                 </div>
@@ -186,10 +193,10 @@
                     </form>
                 </div>
             </div>
-        </main>
-
-    </div>
+        </div>
+    </main>
 </section>
+
 
 <!-- Footer-->
 <div id="footer-placeholder"></div>
@@ -256,6 +263,9 @@
         }
     });
 </script>
+
+<script src="js/loadCart.js"></script>
+
 
 
 </body>
