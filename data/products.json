@@ -1,0 +1,39 @@
+{
+  "products": {
+    "1": {
+      "title": "Tomatoes",
+      "price": "1.52",
+      "description": "Tasty Tomatoes just bought yesterday",
+      "shipping": false,
+      "condition": "new",
+      "tags": [
+        "kitchen",
+        "food"
+      ],
+      "images": "data/img/tomato.jpg"
+    },
+    "2": {
+      "title": "Clothing Rack",
+      "price": "15.00",
+      "description": "Nice and barely used clothing rack",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "household"
+      ],
+      "image": "data/img/clothingrack.jpg"
+    },
+    "3": {
+      "title": "Apple Pencil",
+      "price": "45.00",
+      "description": "Selling my old Apple Pencil. I worked two years with it and never had any issues.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "electric",
+        "household"
+      ],
+      "image": "data/img/ApplePencil.png"
+    }
+  }
+}

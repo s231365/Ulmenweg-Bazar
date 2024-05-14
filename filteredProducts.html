@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/vanilla.js"></script>
+    <script src="js/handlebars.min.js"></script>
+    <script src="js/loadDataIntoStorage.js"></script>
+    <title>Products</title>
+</head>
+<body onload="loadDataFromJSON()">
+
+<!-- Bootstrap core JS-->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Load Navbar script -->
+<script src="js/include-navbar-and-footer.js"></script>
+<!--load Navbar-->
+<div id="navbar-placeholder"></div>
+
+<section class="py-5 my-4">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="title-box-featured">
+            <h2>Product List</h2>
+        </div>
+
+        <!--load products-->
+        <ul id="product-list"></ul>
+
+        <!--parse products from JSON-->
+        <script>
+            const data = JSON.parse(localStorage.getItem('products'));
+
+            Handlebars.registerHelper('containsTag', function (product, tag, options) {
+                if (product.tags && product.tags.indexOf(tag) !== -1) {
+                    return options.fn(this);
+                } else {
+                    return options.inverse(this);
+                }
+            });
+        </script>
+
+        <script id="product-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {{#each products}}
+                        {{#containsTag this 'household'}}   <!-- That´s the filter -->
+                            <div class="col mb-5">
+                                <div class="card h-90">
+                                    <!-- Product image-->
+                                    <img class="card-img-top" src="{{this.image}}" alt="Card image cap"/>
+                                    <!-- Product details-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- Product title-->
+                                            <h5 class="card-title">{{this.title}}</h5>
+                                            <!-- Product price-->
+                                            <p class="card-text">{{this.price}}</p>
+                                            <!--add buttons-->
+                                            <div class="text-center">
+                                                <!--button opens product.html with the id-->
+                                                <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
+                                                <!--X-->
+                                                <a class="btn btn-primary" href="#">Add to cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/containsTag}}
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <script>
+            const source = document.getElementById('product-template').innerHTML;
+            const template = Handlebars.compile(source);
+            const html = template(data);
+            document.getElementById('product-list').innerHTML = html;
+        </script>
+
+    </div>
+</section>
+<!-- Footer-->
+<div id="footer-placeholder"></div>
+</body>
+</html>
