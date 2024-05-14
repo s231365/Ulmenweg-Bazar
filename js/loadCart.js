@@ -1,3 +1,4 @@
+
 // Function to load cart items
 function loadCart() {
     // Retrieve the cart items from local storage
@@ -13,6 +14,7 @@ function loadCart() {
     let template = Handlebars.compile(templateSource);
 
     // Render the template with the cartItems data and insert it into the HTML
+
     document.getElementById('cart-items').innerHTML += template({cartItems: cartItems});
 
     // Calculate total price and display it
@@ -42,7 +44,6 @@ function loadCart() {
     }
 }
 
-
 // Function to delete an item from the cart
 function deleteItem(indexToDelete) {
     // Retrieve the cart items from local storage
@@ -67,5 +68,4 @@ function deleteItem(indexToDelete) {
     loadCart();
     location.reload();
 }
-
 
