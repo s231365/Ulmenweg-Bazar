@@ -60,7 +60,7 @@
 
 
                 </div>
-                     <div class="col-md-7 col-lg-8">
+                <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Customer information</h4>
                     <form class="needs-validation" novalidate>
                         <div class="row g-3">
@@ -149,47 +149,50 @@
 
                             </div>
 
-                        <div class="row gy-3 card-info">
-                            <div class="col-12">
-                                <label for="cc-name" class="form-label">Name on card</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                <small class="text-muted">Full name as displayed on card</small>
-                                <div class="invalid-feedback">
-                                    Name on card is required
+                            <div class="row gy-3 card-info">
+                                <div class="col-12">
+                                    <label for="cc-name" class="form-label">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="cc-number" class="form-label">Credit card number</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder=""
-                                       inputmode="numeric" pattern="[0-9]*" required>
-                                <div class="invalid-feedback">
-                                    Credit card number is required
+                                <div class="col-12">
+                                    <label for="cc-number" class="form-label">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder=""
+                                           inputmode="numeric" pattern="[0-9]*" required>
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="cc-expiration" class="form-label">Expiration</label>
-                                <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY"
-                                       inputmode="numeric" required>
+                                <div class="col-sm-6">
+                                    <label for="cc-expiration" class="form-label">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY"
+                                           inputmode="numeric" required>
 
-                                <div class="invalid-feedback">
-                                    Expiration date required
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="cc-cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder=""
+                                           inputmode="numeric"
+                                           pattern="[0-9]{3}" required>
+
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
-                                <label for="cc-cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" inputmode="numeric"
-                                       pattern="[0-9]{3}" required>
+                            <hr class="my-4">
 
-                                <div class="invalid-feedback">
-                                    Security code required
-                                </div>
-                            </div>
+                            <button class="w-100 btn btn-primary btn-lg my-4" type="submit">Continue to checkout
+                            </button>
                         </div>
-
-                        <hr class="my-4">
-
-                        <button class="w-100 btn btn-primary btn-lg my-4" type="submit">Continue to checkout</button>
                     </form>
                 </div>
             </div>
@@ -265,7 +268,6 @@
 </script>
 
 <script src="js/loadCart.js"></script>
-
 
 
 </body>
