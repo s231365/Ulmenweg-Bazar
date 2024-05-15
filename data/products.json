@@ -7,10 +7,9 @@
       "shipping": false,
       "condition": "new",
       "tags": [
-        "kitchen",
-        "food"
+        "kitchen"
       ],
-      "images": "data/img/tomato.jpg"
+      "image": "img/products/tomato.jpg"
     },
     "2": {
       "title": "Clothing Rack",
@@ -19,9 +18,9 @@
       "shipping": true,
       "condition": "used",
       "tags": [
-        "household"
+        "furniture"
       ],
-      "image": "data/img/clothingrack.jpg"
+      "image": "img/products/clothingrack.jpg"
     },
     "3": {
       "title": "Apple Pencil",
@@ -30,10 +29,9 @@
       "shipping": true,
       "condition": "used",
       "tags": [
-        "electric",
-        "household"
+        "electronics"
       ],
-      "image": "data/img/ApplePencil.png"
+      "image": "img/products/ApplePencil.png"
     }
   }
 }

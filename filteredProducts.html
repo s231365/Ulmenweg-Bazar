@@ -28,12 +28,19 @@
         <!--load products-->
         <ul id="product-list"></ul>
 
-        <!--parse products from JSON-->
         <script>
+
+            // get the type given in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const type_filter = urlParams.get('type');
+            console.log("found id: ", type_filter);
+
+            <!--get data from localStorage-->
             const data = JSON.parse(localStorage.getItem('products'));
 
-            Handlebars.registerHelper('containsTag', function (product, tag, options) {
-                if (product.tags && product.tags.indexOf(tag) !== -1) {
+            Handlebars.registerHelper('filterProducts', function (product, options) {
+                if (product.tags && product.tags.indexOf(type_filter) !== -1) {
+                    console.log("data: ", options.fn(this));
                     return options.fn(this);
                 } else {
                     return options.inverse(this);
@@ -45,11 +52,11 @@
             <div class="row">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     {{#each products}}
-                        {{#containsTag this 'household'}}   <!-- That´s the filter -->
+                        {{#filterProducts this}}   <!-- That´s the filter -->
                             <div class="col mb-5">
                                 <div class="card h-90">
                                     <!-- Product image-->
-                                    <img class="card-img-top" src="{{this.image}}" alt="Card image cap"/>
+                                    <img class="card-img-top" src="{{this.image}}" alt="no data found"/>
                                     <!-- Product details-->
                                     <div class="card-body p-4">
                                         <div class="text-center">
@@ -68,7 +75,7 @@
                                     </div>
                                 </div>
                             </div>
-                        {{/containsTag}}
+                        {{/filterProducts}}
                     {{/each}}
                 </div>
             </div>
