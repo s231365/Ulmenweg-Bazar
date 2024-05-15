@@ -1,20 +1,20 @@
 {
   "products": {
     "1": {
-      "title": "Tomatoes",
-      "price": "1.52",
-      "description": "Tasty Tomatoes just bought yesterday",
+      "title": "Kitchen Knife",
+      "price": "15.00",
+      "description": "Barely used Kitchen Knife of a branch we all know",
       "shipping": false,
       "condition": "new",
       "tags": [
         "kitchen"
       ],
-      "image": "img/products/tomato.jpg"
+      "image": "img/products/kitchenknife.jpg"
     },
     "2": {
       "title": "Clothing Rack",
       "price": "15.00",
-      "description": "Nice and barely used clothing rack",
+      "description": "Nice clothing rack in a good condition",
       "shipping": true,
       "condition": "used",
       "tags": [
@@ -32,6 +32,40 @@
         "electronics"
       ],
       "image": "img/products/ApplePencil.png"
+    },
+    "4": {
+      "title": "Cheese Grater",
+      "price": "30.00",
+      "description": "Selling a cheese Grater. Works fine, just some scratches",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "electronics",
+        "kitchen"
+      ],
+      "image": "img/products/cheesegrater.jpg"
+    },
+    "5": {
+      "title": "Imagine Dragons Tickets",
+      "price": "120.00",
+      "description": "Selling two Tickets for Imagine Dragons this summer. Cant go there because my dog ate all my money",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/imaginedragonsticket.jpeg"
+    },
+    "6": {
+      "title": "Torsten Sträter Tickets",
+      "price": "80.00",
+      "description": "Selling two Tickets for German Comedian Torsten Sträter.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/straeterticket.jpeg"
     }
   }
 }
