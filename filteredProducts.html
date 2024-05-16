@@ -54,11 +54,11 @@
                     {{#each products}}
                         {{#filterProducts this}}   <!-- That´s the filter -->
                             <div class="col mb-5">
-                                <div class="card h-90">
+                                <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="{{this.image}}" alt="no data found"/>
                                     <!-- Product details-->
-                                    <div class="card-body p-4">
+                                    <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
                                             <!-- Product title-->
                                             <h5 class="card-title">{{this.title}}</h5>
