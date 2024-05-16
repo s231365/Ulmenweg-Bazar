@@ -5,7 +5,6 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <script src="js/vanilla.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/loadDataIntoStorage.js"></script>
     <title>Products</title>
@@ -39,7 +38,7 @@
             const data = JSON.parse(localStorage.getItem('products'));
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
-                if (product.tags && product.tags.indexOf(type_filter) !== -1) {
+                if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
                     console.log("data: ", options.fn(this));
                     return options.fn(this);
                 } else {

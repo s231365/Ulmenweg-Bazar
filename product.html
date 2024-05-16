@@ -55,11 +55,9 @@
 
                 <script id="product-template" type="text/x-handlebars-template">
                     <div class="row">
-                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                             {{#each products}}
 
-                                    <main class="container">
-                                        <section class="py-5 my-4">
+
                                             <div class="row">
                                                 <h2>{{this.title}}</h2>
                                             </div>
@@ -68,7 +66,7 @@
                                                     <img class="img-fluid" src="{{this.image}}" alt="Bazar Logo">
                                                 </div>
                                                 <div class="col-4 needs-validation">
-                                                    <h3>Price</h3>
+                                                    <h3>{{this.price}}</h3>
                                                     <button id="addToCartBtn" class="btn btn-primary w-100" type="submit" onclick="addToCart()">Add to
                                                         cart
                                                     </button>
@@ -76,17 +74,15 @@
                                             </form>
                                             <div class="row">
                                                 <h2>
-                                                    price: {{this.price}}
                                                     description: {{this.description}}
                                                     categories: {{this.tags}}
                                                     condition: {{this.condition}}
                                                     shipping: {{this.shipping}}
                                                 </h2>
                                             </div>
-                                        </section>
-                                    </main>
+
                             {{/each}}
-                        </div>
+
                     </div>
                 </script>
 
