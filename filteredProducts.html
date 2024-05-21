@@ -7,6 +7,8 @@
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
     <script src="js/loadDataIntoStorage.js"></script>
+    <script src="js/AddToCart.js"></script>
+
     <title>Products</title>
 </head>
 <body onload="loadDataFromJSON()">
@@ -64,11 +66,13 @@
                                             <!-- Product price-->
                                             <p class="card-text">{{this.price}}</p>
                                             <!--add buttons-->
-                                            <div class="text-center">
+                                            <div class="card-footer text-center">
                                                 <!--button opens product.html with the id-->
                                                 <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
-                                                <!--X-->
-                                                <a class="btn btn-primary" href="#">Add to cart</a>
+                                                <!--button executes addToCart()-->
+                                                <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{@key}})">Add to
+                                                    cart
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
