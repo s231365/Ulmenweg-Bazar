@@ -5,7 +5,6 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <script src="js/vanilla.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/loadDataIntoStorage.js"></script>
     <title>Products</title>
@@ -39,7 +38,7 @@
             const data = JSON.parse(localStorage.getItem('products'));
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
-                if (product.tags && product.tags.indexOf(type_filter) !== -1) {
+                if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
                     console.log("data: ", options.fn(this));
                     return options.fn(this);
                 } else {
@@ -54,11 +53,11 @@
                     {{#each products}}
                         {{#filterProducts this}}   <!-- That´s the filter -->
                             <div class="col mb-5">
-                                <div class="card h-90">
+                                <div class="card h-100">
                                     <!-- Product image-->
                                     <img class="card-img-top" src="{{this.image}}" alt="no data found"/>
                                     <!-- Product details-->
-                                    <div class="card-body p-4">
+                                    <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
                                             <!-- Product title-->
                                             <h5 class="card-title">{{this.title}}</h5>

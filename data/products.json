@@ -66,6 +66,215 @@
         "tickets"
       ],
       "image": "img/products/straeterticket.jpeg"
+    },
+    "7": {
+      "title": "Outdoor Tent",
+      "price": "100.00",
+      "description": "Brand new outdoor tent, perfect for camping trips",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/outdoorTent.webp"
+    },
+    "8": {
+      "title": "Wooden Chair",
+      "price": "25.00",
+      "description": "Used wooden chair in good condition",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/woodenChair.jpg"
+    },
+    "9": {
+      "title": "JBL Bluetooth Speaker",
+      "price": "30.00",
+      "description": "Used Bluetooth speaker JBL Charge 4, works perfectly",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "electronics"
+      ],
+      "image": "img/products/bluetoothSpeaker.jpg"
+    },
+    "10": {
+      "title": "Kitchen Utensil Set",
+      "price": "15.00",
+      "description": "New kitchen utensil set from Amazon, never used",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "kitchen"
+      ],
+      "image": "img/products/kitchenUtensilSet.jpg"
+    },
+    "11": {
+      "title": "Concert Tickets",
+      "price": "50.00",
+      "description": "Two Die Toten Hosen concert tickets for sale, great seats",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/dthTickets.jpeg"
+    },
+    "12": {
+      "title": "Camping Stove",
+      "price": "35.00",
+      "description": "Used camping stove, perfect for outdoor cooking. Doesnt include gas",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/campingStove.webp"
+    },
+    "13": {
+      "title": "Free Programmer T-shirt",
+      "price": "0.00",
+      "description": "Giving away my programmer t-shirt, good condition. Warning: doesnt help while caffeine-withdrawal",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/tshirt.jpg"
+    },
+    "14": {
+      "title": "Free Programming Book for Linux and SQL",
+      "price": "0.00",
+      "description": "Giving away my programming for beginners book. It really helped me in university",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/Programmingbook.webp"
+    },
+    "15": {
+      "title": "Miscellaneous Items",
+      "price": "10.00",
+      "description": "Selling a box of miscellaneous items I found in my room",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "other"
+      ],
+      "image": "img/products/miscellaneousItems.JPG"
+    },
+    "16": {
+      "title": "Outdoor Grill",
+      "price": "75.00",
+      "description": "Used outdoor grill, perfect for BBQ parties",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/outdoorGrill.jpg"
+    },
+    "17": {
+      "title": "Leather Sofa",
+      "price": "200.00",
+      "description": "Used leather sofa in good condition",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/leatherSofa.jpg"
+    },
+    "18": {
+      "title": "Samsung TV",
+      "price": "300.00",
+      "description": "Used Samsung TV, works perfectly",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "electronics"
+      ],
+      "image": "img/products/samsungTV.jpg"
+    },
+    "19": {
+      "title": "Kitchen Mixer",
+      "price": "50.00",
+      "description": "New kitchen mixer, never used",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "kitchen"
+      ],
+      "image": "img/products/kitchenMixer.jpg"
+    },
+    "20": {
+      "title": "Lion King Theater Tickets",
+      "price": "80.00",
+      "description": "Two theater tickets for Lion King for sale, great seats",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/lionTheaterTicket.webp"
+    },
+    "21": {
+      "title": "Camping Chair",
+      "price": "20.00",
+      "description": "Used camping chair, perfect for outdoor trips",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/campingChair.webp"
+    },
+    "22": {
+      "title": "Free Coffee Mug",
+      "price": "0.00",
+      "description": "Giving away my coffee mug, good condition",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/coffeeMug.webp"
+    },
+    "23": {
+      "title": "Free Python Book",
+      "price": "0.00",
+      "description": "Giving away my Python for beginners book. It really helped me in university",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/pythonBook.webp"
+    },
+    "24": {
+      "title": "Mistery Box",
+      "price": "15.00",
+      "description": "Selling a misterybox. Something of value? Maybe.",
+      "shipping": false,
+      "condition": "new",
+      "tags": [
+        "other"
+      ],
+      "image": "img/products/misteryBox.webp"
+    },
+    "25": {
+      "title": "Outdoor Hammock",
+      "price": "50.00",
+      "description": "Used outdoor hammock, perfect for relaxing",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/outdoorHammock.webp"
     }
   }
 }

@@ -53,6 +53,7 @@
                 <div class="row">
                     <h2>{{this.title}}</h2>
                 </div>
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-12 col-md-8 mb-4 mb-md-0">
                         <img class="img-fluid" src="{{this.image}}" alt="Product Image">
@@ -80,6 +81,65 @@
                                 <p>{{this.shipping}}</p>
                             </div>
                         </div>
+=======
+
+                <!--load products-->
+                <ul id="product-list"></ul>
+
+                <script> // Get the id parameter from the URL and load data from localStorage
+
+                    // get the id given in the URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productId = urlParams.get('id');
+                    console.log("found id: ", productId);
+
+                    // get the string value from local storage and filter for a key
+                    const all_data = JSON.parse(localStorage.getItem('products'));
+                    const products = {};
+
+                    for (const key in all_data.products) {
+                        const element = all_data.products[key];
+                        if (key === productId) { // Checking if the key is equal to productId
+                            products[key] = element;
+                        }
+                    }
+                    const filtered_data = {products: products}
+                    console.log('Filtered data:', filtered_data);
+
+
+                </script>
+
+                <script id="product-template" type="text/x-handlebars-template">
+                    <div class="row">
+                            {{#each products}}
+
+
+                                            <div class="row">
+                                                <h2>{{this.title}}</h2>
+                                            </div>
+                                            <form class="row">
+                                                <div class="col-8">
+                                                    <img class="img-fluid" src="{{this.image}}" alt="Bazar Logo">
+                                                </div>
+                                                <div class="col-4 needs-validation">
+                                                    <h3>{{this.price}}</h3>
+                                                    <button id="addToCartBtn" class="btn btn-primary w-100" type="submit" onclick="addToCart()">Add to
+                                                        cart
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <div class="row">
+                                                <h2>
+                                                    description: {{this.description}}
+                                                    categories: {{this.tags}}
+                                                    condition: {{this.condition}}
+                                                    shipping: {{this.shipping}}
+                                                </h2>
+                                            </div>
+
+                            {{/each}}
+
+>>>>>>> 1b6f7caea51b8dfbb1071bc7f15c69883cddc845
                     </div>
                 </div>
 
