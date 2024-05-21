@@ -57,7 +57,7 @@
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- Product image-->
-                                    <img class="card-img-top" src="{{this.image}}" alt="no data found"/>
+                                    <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}" alt="no data found"/></a>
                                     <!-- Product details-->
                                     <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
@@ -66,15 +66,16 @@
                                             <!-- Product price-->
                                             <p class="card-text">{{this.price}}</p>
                                             <!--add buttons-->
-                                            <div class="card-footer text-center">
-                                                <!--button opens product.html with the id-->
-                                                <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
-                                                <!--button executes addToCart()-->
-                                                <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{@key}})">Add to
-                                                    cart
-                                                </button>
-                                            </div>
+
                                         </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <!--button opens product.html with the id-->
+                                        <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
+                                        <!--button executes addToCart()-->
+                                        <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{@key}})">Add to
+                                            cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
