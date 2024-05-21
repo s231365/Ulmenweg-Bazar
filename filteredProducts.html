@@ -6,7 +6,6 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
-    <script src="js/loadDataIntoStorage.js"></script>
     <script src="js/AddToCart.js"></script>
 
     <title>Products</title>
@@ -34,14 +33,12 @@
             // get the type given in the URL
             const urlParams = new URLSearchParams(window.location.search);
             const type_filter = urlParams.get('type');
-            console.log("found id: ", type_filter);
 
             <!--get data from localStorage-->
             const data = JSON.parse(localStorage.getItem('products'));
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
                 if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
-                    console.log("data: ", options.fn(this));
                     return options.fn(this);
                 } else {
                     return options.inverse(this);
