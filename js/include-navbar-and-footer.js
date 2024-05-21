@@ -1,11 +1,15 @@
 function loadNavbarAndFooter() {
     // Load navbar
     var navbarXhr = new XMLHttpRequest();
-    navbarXhr.onreadystatechange = function() {
+    navbarXhr.onreadystatechange = function () {
         if (navbarXhr.readyState === XMLHttpRequest.DONE) {
             if (navbarXhr.status === 200) {
                 document.getElementById("navbar-placeholder").innerHTML = navbarXhr.responseText;
-
+                // Attach event listener to search button
+                document.querySelector('.btn[type="submit"]').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent form submission
+                    handleSearch();
+                });
                 updateCartItemCount(); // Call function to update cart item count after loading navbar
             } else {
                 console.error('Error loading navbar:', navbarXhr.status);
@@ -17,7 +21,7 @@ function loadNavbarAndFooter() {
 
     // Load footer
     var footerXhr = new XMLHttpRequest();
-    footerXhr.onreadystatechange = function() {
+    footerXhr.onreadystatechange = function () {
         if (footerXhr.readyState === XMLHttpRequest.DONE) {
             if (footerXhr.status === 200) {
                 document.getElementById("footer-placeholder").innerHTML = footerXhr.responseText;
@@ -29,6 +33,7 @@ function loadNavbarAndFooter() {
     footerXhr.open("GET", "footer.html", true);
     footerXhr.send();
 }
+
 function updateCartItemCount() {
     // Retrieve the cart items from local storage
     let cartItemsString = sessionStorage.getItem('cartItems');
@@ -48,6 +53,14 @@ function updateCartItemCount() {
     }
 }
 
+function handleSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput.value.trim();
+
+    if (query) {
+        window.location.href = `searchResults.html?query=${encodeURIComponent(query)}`;
+    }
+}
 
 // Call the function to load navbar and footer
 loadNavbarAndFooter();
