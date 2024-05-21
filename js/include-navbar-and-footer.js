@@ -31,7 +31,7 @@ function loadNavbarAndFooter() {
 }
 function updateCartItemCount() {
     // Retrieve the cart items from local storage
-    let cartItemsString = localStorage.getItem('cartItems');
+    let cartItemsString = sessionStorage.getItem('cartItems');
 
     // Parse the JSON string back into a JavaScript object
     let cartItems = JSON.parse(cartItemsString);

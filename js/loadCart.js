@@ -10,13 +10,12 @@ function loadCart() {
     let cartItems = {};
 
     // Fill in all product data of products contained in the cartItemKeys array into cartItems map
-    for(let itemKey of cartItemKeys){
+    for (let itemKey of cartItemKeys) {
         console.log("Checking itemKey: ", itemKey);
-        if(itemKey in allProducts.products) {
+        if (itemKey in allProducts.products) {
             cartItems[itemKey] = allProducts.products[itemKey];
         }
     }
-
 
 
     // Get the Handlebars template script
@@ -31,19 +30,18 @@ function loadCart() {
     // Calculate total price and display it
     let totalPrice = 0;
 
-    // Iterate through each item in the cart and calculate total price
-    if (cartItems && cartItems.length) {
-        cartItems.forEach(item => {
-            totalPrice += parseFloat(item.price);
-        });
+
+    for (let key in cartItems) {
+        totalPrice += parseFloat(cartItems[key].price);
     }
+
 
     // Display the total price in the HTML
     let totalPriceElement = document.getElementById('total-price');
     let checkoutButton = document.getElementById('checkout');
     let emptyCartMessage = document.getElementById('empty-cart');
 
-    if (cartItems && cartItems.length > 0) {
+    if (cartItemKeys.length > 0) {
         // If cart is not empty
         totalPriceElement.innerText = totalPrice.toFixed(2);
         checkoutButton.style.display = 'block';
