@@ -7,6 +7,7 @@
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
+    <script src="js/sortProductsByKeyword.js"></script>
 
     <title>Products</title>
 </head>
@@ -21,8 +22,18 @@
 
 <section class="py-5 my-4">
     <div class="container px-4 px-lg-5 mt-5">
+
         <div class="title-box-featured">
             <h2>Product List</h2>
+        </div>
+
+        <div class="row py-2 gx-4  gx-lg-5">
+            <select id="sorting" class="form-select" onchange="sortProductsByKeyword(localStorage.getItem('products'), this.value)">
+                {{#sorting}}
+                <option value="name-a-z">A-Z</option>
+                <option value="name-z-a">Z-A</option>
+                {{/sorting}}
+            </select>
         </div>
 
         <!--load products-->
@@ -46,6 +57,7 @@
             });
         </script>
 
+
         <script id="product-template" type="text/x-handlebars-template">
             <div class="row">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -54,7 +66,8 @@
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- Product image-->
-                                    <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}" alt="no data found"/></a>
+                                    <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}"
+                                                                            alt="no data found"/></a>
                                     <!-- Product details-->
                                     <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
@@ -70,7 +83,8 @@
                                         <!--button opens product.html with the id-->
                                         <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
                                         <!--button executes addToCart()-->
-                                        <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{@key}})">Add to
+                                        <button id="addToCartBtn" class="btn btn-primary" type="submit"
+                                                onclick="addToCart({{@key}})">Add to
                                             cart
                                         </button>
                                     </div>
