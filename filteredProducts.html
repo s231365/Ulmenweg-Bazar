@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
     <script src="js/sortProductsByKeyword.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/include-navbar-and-footer.js"></script>
 
     <title>Products</title>
 </head>
 <body>
 
-<!-- Bootstrap core JS-->
-<script src="js/bootstrap.bundle.min.js"></script>
-<!-- Load Navbar script -->
-<script src="js/include-navbar-and-footer.js"></script>
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
@@ -28,12 +25,13 @@
         </div>
 
         <div class="row py-2 gx-4  gx-lg-5">
-            <select id="sorting" class="form-select" onchange="sortProductsByKeyword(localStorage.getItem('products'), this.value)">
-                {{#sorting}}
-                <option value="name-a-z">A-Z</option>
-                <option value="name-z-a">Z-A</option>
-                {{/sorting}}
-            </select>
+                <select id="sorting" class="form-select" onchange="triggerSorting(this)">
+                    {{#sorting}}
+                        <option value="standard">Standard</option>
+                        <option value="name-a-z">A-Z</option>
+                        <option value="name-z-a">Z-A</option>
+                    {{/sorting}}
+                </select>
         </div>
 
         <!--load products-->
@@ -45,8 +43,29 @@
             const urlParams = new URLSearchParams(window.location.search);
             const type_filter = urlParams.get('type');
 
-            <!--get data from localStorage-->
-            const data = JSON.parse(localStorage.getItem('products'));
+            const sorting = urlParams.get('sorting')
+            console.log("detected sorting from url: ", sorting);
+
+            const data = JSON.parse(localStorage.getItem('products')).products;
+            console.log("const data in filteredProducts.html: ", data)
+
+            let dataArray = Object.values(data);
+            console.log("unsorted dataArray: ", dataArray);
+
+            switch (sorting) {
+                case "name-a-z":
+                    dataArray.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+                    console.log("sorted dataArray: ", dataArray);
+                    break
+            }
+            /**let dataObject = dataArray.reduce((obj, item, index) => {
+                // Use the index + 1 as the key, similar to your original data
+                obj[index + 1] = item;
+                return obj;
+            }, {});*/
+
+            // Now dataObject is an object with the same structure as the original data
+
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
                 if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
@@ -58,31 +77,24 @@
         </script>
 
 
-        <script id="product-template" type="text/x-handlebars-template">
+        <script id="show-products" type="text/x-handlebars-template">
             <div class="row">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     {{#each products}}
-                        {{#filterProducts this}}   <!-- That´s the filter -->
+                        {{#filterProducts this}}
                             <div class="col mb-5">
                                 <div class="card h-100">
-                                    <!-- Product image-->
                                     <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}"
                                                                             alt="no data found"/></a>
-                                    <!-- Product details-->
                                     <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
-                                            <!-- Product title-->
                                             <h5 class="card-title">{{this.title}}</h5>
-                                            <!-- Product price-->
                                             <p class="card-text">{{this.price}}</p>
-                                            <!--add buttons-->
 
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <!--button opens product.html with the id-->
                                         <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
-                                        <!--button executes addToCart()-->
                                         <button id="addToCartBtn" class="btn btn-primary" type="submit"
                                                 onclick="addToCart({{@key}})">Add to
                                             cart
@@ -97,7 +109,7 @@
         </script>
 
         <script>
-            const source = document.getElementById('product-template').innerHTML;
+            const source = document.getElementById('show-products').innerHTML;
             const template = Handlebars.compile(source);
             const html = template(data);
             document.getElementById('product-list').innerHTML = html;
