@@ -37,7 +37,8 @@
 
         for (const key in all_data.products) {
             const element = all_data.products[key];
-            if (key === productId) { // Checking if the key is equal to productId
+            const element_id = element.id;
+            if (element_id === productId) { // Checking if the key is equal to productId
                 products[key] = element;
             }
         }
@@ -64,7 +65,7 @@
                         </div>
                         <div class="card-body">
                             <button id="addToCartBtn" class="btn btn-primary w-100"
-                                    onclick="addToCart({{@key}})">Add to Cart
+                                    onclick="addToCart({{this.id}})">Add to Cart
                             </button>
                         </div>
                     </div>

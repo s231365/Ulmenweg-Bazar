@@ -6,7 +6,7 @@
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
-    <script src="js/sortProductsByKeyword.js"></script>
+    <script src="js/sortingFunctions.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/include-navbar-and-footer.js"></script>
 
@@ -25,11 +25,13 @@
         </div>
 
         <div class="row py-2 gx-4  gx-lg-5">
-                <select id="sorting" class="form-select" onchange="triggerSorting(this)">
+                <select id="sorting" class="form-select" onchange="reloadPageForSorting(this.value)">
                     {{#sorting}}
                         <option value="standard">Standard</option>
                         <option value="name-a-z">A-Z</option>
                         <option value="name-z-a">Z-A</option>
+                        <option value="low-high">Price Low-High</option>
+                        <option value="high-low">Price High-Low</option>
                     {{/sorting}}
                 </select>
         </div>
@@ -39,12 +41,16 @@
 
         <script>
 
-            // get the type given in the URL
+            // get the product-type given in the URL
             const urlParams = new URLSearchParams(window.location.search);
             const type_filter = urlParams.get('type');
 
+            //get the sorting in the url
             const sorting = urlParams.get('sorting')
-            console.log("detected sorting from url: ", sorting);
+
+            if (sorting != null) {
+                document.getElementById('sorting').value = sorting;
+            }
 
             const data = JSON.parse(localStorage.getItem('products')).products;
             console.log("const data in filteredProducts.html: ", data)
@@ -53,19 +59,28 @@
             console.log("unsorted dataArray: ", dataArray);
 
             switch (sorting) {
+                case "standard":
+                default:
+                    dataArray.sort((a, b) => a.id.localeCompare(b.id));
+                    console.log("sorted (standard) dataArray: ", dataArray);
+                    break
                 case "name-a-z":
                     dataArray.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
-                    console.log("sorted dataArray: ", dataArray);
+                    console.log("sorted (a-z) dataArray: ", dataArray);
+                    break
+                case "name-z-a":
+                    dataArray.sort((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()));
+                    console.log("sorted (z-a) dataArray: ", dataArray);
+                    break
+                case "low-high":
+                    dataArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                    console.log("sorted (l-h) dataArray: ", dataArray);
+                    break
+                case "high-low":
+                    dataArray.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+                    console.log("sorted (h-l) dataArray: ", dataArray);
                     break
             }
-            /**let dataObject = dataArray.reduce((obj, item, index) => {
-                // Use the index + 1 as the key, similar to your original data
-                obj[index + 1] = item;
-                return obj;
-            }, {});*/
-
-            // Now dataObject is an object with the same structure as the original data
-
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
                 if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
@@ -80,23 +95,22 @@
         <script id="show-products" type="text/x-handlebars-template">
             <div class="row">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {{#each products}}
+                    {{#each value}}
                         {{#filterProducts this}}
                             <div class="col mb-5">
                                 <div class="card h-100">
-                                    <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}"
+                                    <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}"
                                                                             alt="no data found"/></a>
                                     <div class="card-body p-4 d-flex flex-column">
                                         <div class="text-center">
                                             <h5 class="card-title">{{this.title}}</h5>
                                             <p class="card-text">{{this.price}}</p>
-
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
+                                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
                                         <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                onclick="addToCart({{@key}})">Add to
+                                                onclick="addToCart({{this.id}})">Add to
                                             cart
                                         </button>
                                     </div>
@@ -111,7 +125,7 @@
         <script>
             const source = document.getElementById('show-products').innerHTML;
             const template = Handlebars.compile(source);
-            const html = template(data);
+            const html = template({value: dataArray});
             document.getElementById('product-list').innerHTML = html;
         </script>
 
