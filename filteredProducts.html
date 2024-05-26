@@ -6,13 +6,14 @@
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
-    <script src="js/sortingFunctions.js"></script>
+    <script src="js/sorting-functions.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/include-navbar-and-footer.js"></script>
+    <script src="js/render-functions.js"></script>
 
     <title>Products</title>
 </head>
-<body>
+<body onload="render_filteredProducts();">
 
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
@@ -25,62 +26,38 @@
         </div>
 
         <div class="row py-2 gx-4  gx-lg-5">
+            <div class="form-group">
+                <label for="sorting">Sort Products</label>
                 <select id="sorting" class="form-select" onchange="reloadPageForSorting(this.value)">
                     {{#sorting}}
-                        <option value="standard">Standard</option>
-                        <option value="name-a-z">A-Z</option>
-                        <option value="name-z-a">Z-A</option>
-                        <option value="low-high">Price Low-High</option>
-                        <option value="high-low">Price High-Low</option>
+                    <option value="standard">Standard</option>
+                    <option value="name-a-z">A-Z</option>
+                    <option value="name-z-a">Z-A</option>
+                    <option value="low-high">Price Low-High</option>
+                    <option value="high-low">Price High-Low</option>
                     {{/sorting}}
                 </select>
+            </div>
         </div>
+
+
 
         <!--load products-->
         <ul id="product-list"></ul>
 
+        <!--enable sorting-->
         <script>
-
-            // get the product-type given in the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const type_filter = urlParams.get('type');
-
-            //get the sorting in the url
             const sorting = urlParams.get('sorting')
-
             if (sorting != null) {
                 document.getElementById('sorting').value = sorting;
             }
+            dataArray = sortProducts(sorting);
+        </script>
 
-            const data = JSON.parse(localStorage.getItem('products')).products;
-            console.log("const data in filteredProducts.html: ", data)
-
-            let dataArray = Object.values(data);
-            console.log("unsorted dataArray: ", dataArray);
-
-            switch (sorting) {
-                case "standard":
-                default:
-                    dataArray.sort((a, b) => a.id.localeCompare(b.id));
-                    console.log("sorted (standard) dataArray: ", dataArray);
-                    break
-                case "name-a-z":
-                    dataArray.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
-                    console.log("sorted (a-z) dataArray: ", dataArray);
-                    break
-                case "name-z-a":
-                    dataArray.sort((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()));
-                    console.log("sorted (z-a) dataArray: ", dataArray);
-                    break
-                case "low-high":
-                    dataArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-                    console.log("sorted (l-h) dataArray: ", dataArray);
-                    break
-                case "high-low":
-                    dataArray.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-                    console.log("sorted (h-l) dataArray: ", dataArray);
-                    break
-            }
+        <!--enable filtering-->
+        <script>
+            const type_filter = urlParams.get('type');
 
             Handlebars.registerHelper('filterProducts', function (product, options) {
                 if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
@@ -90,7 +67,6 @@
                 }
             });
         </script>
-
 
         <script id="show-products" type="text/x-handlebars-template">
             <div class="row">
@@ -120,13 +96,6 @@
                     {{/each}}
                 </div>
             </div>
-        </script>
-
-        <script>
-            const source = document.getElementById('show-products').innerHTML;
-            const template = Handlebars.compile(source);
-            const html = template({value: dataArray});
-            document.getElementById('product-list').innerHTML = html;
         </script>
 
     </div>
