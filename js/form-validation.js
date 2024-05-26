@@ -12,6 +12,9 @@
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
+                }else{
+                    event.preventDefault()
+                    window.location.href = 'danke.html';
                 }
 
                 form.classList.add('was-validated')
