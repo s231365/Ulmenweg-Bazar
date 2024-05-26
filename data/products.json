@@ -1,6 +1,7 @@
 {
   "products": {
     "1": {
+      "id": "1",
       "title": "Kitchen Knife",
       "price": "15.00",
       "description": "Barely used Kitchen Knife of a branch we all know",
@@ -12,6 +13,7 @@
       "image": "img/products/kitchenknife.jpg"
     },
     "2": {
+      "id": "2",
       "title": "Clothing Rack",
       "price": "15.00",
       "description": "Nice clothing rack in a good condition",
@@ -23,6 +25,7 @@
       "image": "img/products/clothingrack.jpg"
     },
     "3": {
+      "id": "3",
       "title": "Apple Pencil",
       "price": "45.00",
       "description": "Selling my old Apple Pencil. I worked two years with it and never had any issues.",
@@ -34,6 +37,7 @@
       "image": "img/products/ApplePencil.png"
     },
     "4": {
+      "id": "4",
       "title": "Cheese Grater",
       "price": "30.00",
       "description": "Selling a cheese Grater. Works fine, just some scratches",
@@ -46,6 +50,7 @@
       "image": "img/products/cheesegrater.jpg"
     },
     "5": {
+      "id": "5",
       "title": "Imagine Dragons Tickets",
       "price": "120.00",
       "description": "Selling two Tickets for Imagine Dragons this summer. Cant go there because my dog ate all my money",
@@ -57,6 +62,7 @@
       "image": "img/products/imaginedragonsticket.jpeg"
     },
     "6": {
+      "id": "6",
       "title": "Torsten Sträter Tickets",
       "price": "80.00",
       "description": "Selling two Tickets for German Comedian Torsten Sträter.",
@@ -68,6 +74,7 @@
       "image": "img/products/straeterticket.jpeg"
     },
     "7": {
+      "id": "7",
       "title": "Outdoor Tent",
       "price": "100.00",
       "description": "Brand new outdoor tent, perfect for camping trips",
@@ -79,6 +86,7 @@
       "image": "img/products/outdoorTent.webp"
     },
     "8": {
+      "id": "8",
       "title": "Wooden Chair",
       "price": "25.00",
       "description": "Used wooden chair in good condition",
@@ -90,6 +98,7 @@
       "image": "img/products/woodenChair.jpg"
     },
     "9": {
+      "id": "9",
       "title": "JBL Bluetooth Speaker",
       "price": "30.00",
       "description": "Used Bluetooth speaker JBL Charge 4, works perfectly",
@@ -101,6 +110,7 @@
       "image": "img/products/bluetoothSpeaker.jpg"
     },
     "10": {
+      "id": "10",
       "title": "Kitchen Utensil Set",
       "price": "15.00",
       "description": "New kitchen utensil set from Amazon, never used",
@@ -112,7 +122,8 @@
       "image": "img/products/kitchenUtensilSet.jpg"
     },
     "11": {
-      "title": "Concert Tickets",
+      "id": "11",
+      "title": "Die Toten Hosen Concert Tickets",
       "price": "50.00",
       "description": "Two Die Toten Hosen concert tickets for sale, great seats",
       "shipping": true,
@@ -123,6 +134,7 @@
       "image": "img/products/dthTickets.jpeg"
     },
     "12": {
+      "id": "12",
       "title": "Camping Stove",
       "price": "35.00",
       "description": "Used camping stove, perfect for outdoor cooking. Doesnt include gas",
@@ -134,6 +146,7 @@
       "image": "img/products/campingStove.webp"
     },
     "13": {
+      "id": "13",
       "title": "Free Programmer T-shirt",
       "price": "0.00",
       "description": "Giving away my programmer t-shirt, good condition. Warning: doesnt help while caffeine-withdrawal",
@@ -145,6 +158,7 @@
       "image": "img/products/tshirt.jpg"
     },
     "14": {
+      "id": "14",
       "title": "Free Programming Book for Linux and SQL",
       "price": "0.00",
       "description": "Giving away my programming for beginners book. It really helped me in university",
@@ -156,6 +170,7 @@
       "image": "img/products/Programmingbook.webp"
     },
     "15": {
+      "id": "15",
       "title": "Miscellaneous Items",
       "price": "10.00",
       "description": "Selling a box of miscellaneous items I found in my room",
@@ -167,6 +182,7 @@
       "image": "img/products/miscellaneousItems.JPG"
     },
     "16": {
+      "id": "16",
       "title": "Outdoor Grill",
       "price": "75.00",
       "description": "Used outdoor grill, perfect for BBQ parties",
@@ -178,6 +194,7 @@
       "image": "img/products/outdoorGrill.jpg"
     },
     "17": {
+      "id": "17",
       "title": "Leather Sofa",
       "price": "200.00",
       "description": "Used leather sofa in good condition",
@@ -189,6 +206,7 @@
       "image": "img/products/leatherSofa.jpg"
     },
     "18": {
+      "id": "18",
       "title": "Samsung TV",
       "price": "300.00",
       "description": "Used Samsung TV, works perfectly",
@@ -200,6 +218,7 @@
       "image": "img/products/samsungTV.jpg"
     },
     "19": {
+      "id": "19",
       "title": "Kitchen Mixer",
       "price": "50.00",
       "description": "New kitchen mixer, never used",
@@ -211,6 +230,7 @@
       "image": "img/products/kitchenMixer.jpg"
     },
     "20": {
+      "id": "20",
       "title": "Lion King Theater Tickets",
       "price": "80.00",
       "description": "Two theater tickets for Lion King for sale, great seats",
@@ -222,6 +242,7 @@
       "image": "img/products/lionTheaterTicket.webp"
     },
     "21": {
+      "id": "21",
       "title": "Camping Chair",
       "price": "20.00",
       "description": "Used camping chair, perfect for outdoor trips",
@@ -233,6 +254,7 @@
       "image": "img/products/campingChair.webp"
     },
     "22": {
+      "id": "22",
       "title": "Free Coffee Mug",
       "price": "0.00",
       "description": "Giving away my coffee mug, good condition",
@@ -244,6 +266,7 @@
       "image": "img/products/coffeeMug.webp"
     },
     "23": {
+      "id": "23",
       "title": "Free Python Book",
       "price": "0.00",
       "description": "Giving away my Python for beginners book. It really helped me in university",
@@ -255,6 +278,7 @@
       "image": "img/products/pythonBook.webp"
     },
     "24": {
+      "id": "24",
       "title": "Mistery Box",
       "price": "15.00",
       "description": "Selling a misterybox. Something of value? Maybe.",
@@ -266,6 +290,7 @@
       "image": "img/products/misteryBox.webp"
     },
     "25": {
+      "id": "25",
       "title": "Outdoor Hammock",
       "price": "50.00",
       "description": "Used outdoor hammock, perfect for relaxing",

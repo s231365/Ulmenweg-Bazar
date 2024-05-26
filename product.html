@@ -9,6 +9,8 @@
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
+    <script src="js/render-functions.js"></script>
+    <script src="js/get-specific-product.js"></script>
     <title>Product View</title>
 </head>
 <body onload="render_productsite();">
@@ -23,29 +25,6 @@
     <div class="container">
         <!--load products-->
         <ul id="product-list"></ul>
-
-        <script> // Get the id parameter from the URL and load data from localStorage
-
-        // get the id given in the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id');
-        console.log("found id: ", productId);
-
-        // get the string value from local storage and filter for a key
-        const all_data = JSON.parse(localStorage.getItem('products'));
-        const products = {};
-
-        for (const key in all_data.products) {
-            const element = all_data.products[key];
-            if (key === productId) { // Checking if the key is equal to productId
-                products[key] = element;
-            }
-        }
-        const filtered_data = {products: products}
-        console.log('Filtered data:', filtered_data);
-
-
-        </script>
 
         <script id="product-template" type="text/x-handlebars-template">
             {{#each products}}
@@ -64,7 +43,7 @@
                         </div>
                         <div class="card-body">
                             <button id="addToCartBtn" class="btn btn-primary w-100"
-                                    onclick="addToCart({{@key}})">Add to Cart
+                                    onclick="addToCart({{this.id}})">Add to Cart
                             </button>
                         </div>
                     </div>
@@ -84,30 +63,6 @@
             {{/each}}
 
         </script>
-
-        <script>
-            Handlebars.registerHelper('hasKey', function (product, key, options) {
-                console.log("inside helper", product[key]);
-                if (product[key]) {
-                    return options.fn(this);
-                } else {
-                    return options.inverse(this);
-                }
-            });
-
-            function render_productsite() {
-                const source = document.getElementById('product-template').innerHTML;
-                const template = Handlebars.compile(source);
-                console.log("all data: ", all_data);
-                console.log("filtered data: ", filtered_data);
-                const html = template(filtered_data);
-                console.log("html: ", html);
-                document.getElementById('product-list').innerHTML = html;
-            }
-
-
-        </script>
-
     </div>
 </section>
 
