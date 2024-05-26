@@ -41,14 +41,17 @@ function updateCartItemCount() {
     // Parse the JSON string back into a JavaScript object
     let cartItems = JSON.parse(cartItemsString);
 
-    // Initialize item count
     let itemCount = 0;
-
     // Check if cartItems exists and get its length
     if (cartItems) {
         itemCount = Object.keys(cartItems).length;
 
         // Update the item count displayed in the badge
+        document.getElementById('itemCount').textContent = itemCount;
+    } else{
+        // Initialize item count
+
+
         document.getElementById('itemCount').textContent = itemCount;
     }
 }

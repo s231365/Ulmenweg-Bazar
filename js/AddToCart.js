@@ -9,6 +9,8 @@ function addToCart(key) {
     // Store the updated cart items array back to local storage
     sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
 
+    location.reload();
+
     // Optionally, provide feedback to the user
     alert('Item added to cart!');
 }
