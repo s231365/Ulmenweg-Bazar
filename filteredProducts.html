@@ -18,89 +18,93 @@
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
-<section class="py-5 my-4">
-    <div class="container px-4 px-lg-5 mt-5">
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <section class="py-5 my-4">
+            <div class="container px-4 px-lg-5 mt-5">
 
-        <div class="title-box-featured">
-            <h2>Product List</h2>
-        </div>
+                <div class="title-box-featured">
+                    <h2>Product List</h2>
+                </div>
 
-        <div class="row py-2 gx-4  gx-lg-5">
-            <div class="form-group">
-                <label for="sorting">Sort Products</label>
-                <select id="sorting" class="form-select" onchange="reloadPageForSorting(this.value)">
-                    {{#sorting}}
-                    <option value="standard">Standard</option>
-                    <option value="name-a-z">A-Z</option>
-                    <option value="name-z-a">Z-A</option>
-                    <option value="low-high">Price Low-High</option>
-                    <option value="high-low">Price High-Low</option>
-                    {{/sorting}}
-                </select>
-            </div>
-        </div>
+                <div class="row py-2 gx-4  gx-lg-5">
+                    <div class="form-group">
+                        <label for="sorting">Sort Products</label>
+                        <select id="sorting" class="form-select" onchange="reloadPageForSorting(this.value)">
+                            {{#sorting}}
+                            <option value="standard">Standard</option>
+                            <option value="name-a-z">A-Z</option>
+                            <option value="name-z-a">Z-A</option>
+                            <option value="low-high">Price Low-High</option>
+                            <option value="high-low">Price High-Low</option>
+                            {{/sorting}}
+                        </select>
+                    </div>
+                </div>
 
 
+                <!--load products-->
+                <ul id="product-list"></ul>
 
-        <!--load products-->
-        <ul id="product-list"></ul>
+                <!--enable sorting-->
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const sorting = urlParams.get('sorting')
+                    if (sorting != null) {
+                        document.getElementById('sorting').value = sorting;
+                    }
+                    dataArray = sortProducts(sorting);
+                </script>
 
-        <!--enable sorting-->
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const sorting = urlParams.get('sorting')
-            if (sorting != null) {
-                document.getElementById('sorting').value = sorting;
-            }
-            dataArray = sortProducts(sorting);
-        </script>
+                <!--enable filtering-->
+                <script>
+                    const type_filter = urlParams.get('type');
 
-        <!--enable filtering-->
-        <script>
-            const type_filter = urlParams.get('type');
+                    Handlebars.registerHelper('filterProducts', function (product, options) {
+                        if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
+                            return options.fn(this);
+                        } else {
+                            return options.inverse(this);
+                        }
+                    });
+                </script>
 
-            Handlebars.registerHelper('filterProducts', function (product, options) {
-                if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
-                    return options.fn(this);
-                } else {
-                    return options.inverse(this);
-                }
-            });
-        </script>
-
-        <script id="show-products" type="text/x-handlebars-template">
-            <div class="row">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {{#each value}}
-                        {{#filterProducts this}}
-                            <div class="col mb-5">
-                                <div class="card h-100">
-                                    <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}"
-                                                                            alt="no data found"/></a>
-                                    <div class="card-body p-4 d-flex flex-column">
-                                        <div class="text-center">
-                                            <h5 class="card-title">{{this.title}}</h5>
-                                            <p class="card-text">{{this.price}}</p>
+                <script id="show-products" type="text/x-handlebars-template">
+                    <div class="row">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            {{#each value}}
+                                {{#filterProducts this}}
+                                    <div class="col mb-5">
+                                        <div class="card h-100">
+                                            <a href="product.html?id={{this.id}}"><img class="card-img-top"
+                                                                                       src="{{this.image}}"
+                                                                                       alt="no data found"/></a>
+                                            <div class="card-body p-4 d-flex flex-column">
+                                                <div class="text-center">
+                                                    <h5 class="card-title">{{this.title}}</h5>
+                                                    <p class="card-text">{{this.price}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-center">
+                                                <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                                                <button id="addToCartBtn" class="btn btn-primary" type="submit"
+                                                        onclick="addToCart({{this.id}})">Add to
+                                                    cart
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                                        <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                onclick="addToCart({{this.id}})">Add to
-                                            cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        {{/filterProducts}}
-                    {{/each}}
-                </div>
-            </div>
-        </script>
+                                {{/filterProducts}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </script>
 
-    </div>
-</section>
-<!-- Footer-->
-<div id="footer-placeholder"></div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <div id="footer-placeholder"></div>
+</div>
 </body>
 </html>

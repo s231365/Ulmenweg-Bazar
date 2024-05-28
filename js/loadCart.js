@@ -35,6 +35,11 @@ function loadCart() {
         totalPrice += parseFloat(cartItems[key].price);
     }
 
+    styleCart(cartItemKeys,totalPrice);
+
+}
+
+function styleCart(cartItemKeys,totalPrice) {
 
     // Display the total price in the HTML
     let totalPriceElement = document.getElementById('total-price');

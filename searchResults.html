@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <!-- Handlebars -->
     <script src="js/handlebars.min.js"></script>
+    <script src="js/AddToCart.js"></script>
     <!-- Load Navbar and Footer scripts -->
     <script src="js/include-navbar-and-footer.js"></script>
 </head>
@@ -16,26 +15,31 @@
 <!-- Navbar -->
 <div id="navbar-placeholder"></div>
 
-<section class="py-5 my-4">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="title-box-featured">
-            <h2>Search Results</h2>
-        </div>
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <section class="py-5 my-4">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="title-box-featured">
+                    <h2>Search Results</h2>
+                </div>
 
-        <!-- Search results -->
-        <ul id="search-results" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></ul>
-    </div>
-</section>
-
-<!-- Footer -->
-<div id="footer-placeholder"></div>
+                <!-- Search results -->
+                <ul id="search-results"
+                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></ul>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <div id="footer-placeholder"></div>
+</div>
 
 <script id="search-results-template" type="text/x-handlebars-template">
     {{#each products}}
         <div class="col mb-5">
             <div class="card h-100">
                 <!-- Product image-->
-                <a href="product.html?id={{@key}}"><img class="card-img-top" src="{{this.image}}" alt="no data found"/></a>
+                <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}"
+                                                        alt="no data found"/></a>
                 <!-- Product details-->
                 <div class="card-body p-4 d-flex flex-column">
                     <div class="text-center">
@@ -49,9 +53,9 @@
                 </div>
                 <div class="card-footer text-center">
                     <!--button opens product.html with the id-->
-                    <a class="btn btn-primary" href="product.html?id={{@key}}">View</a>
+                    <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
                     <!--button executes addToCart()-->
-                    <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{@key}})">Add to
+                    <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}})">Add to
                         cart
                     </button>
                 </div>
@@ -62,68 +66,7 @@
     {{/each}}
 </script>
 
-<script>
-    // Function to get query parameter value by name
-    function getQueryParameter(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-
-    // Function to fetch products from local storage
-    function fetchProducts() {
-        let itemsString = localStorage.getItem('products');
-        if (!itemsString) {
-            console.error('No product data found in local storage.');
-            return {};
-        }
-        let parsedData = JSON.parse(itemsString);
-        if (!parsedData || !parsedData.products) {
-            console.error('No product data found in local storage.');
-            return {};
-        }
-        return parsedData.products; // Access the products directly
-    }
-
-    // Function to filter product IDs based on search query
-    function filterProductIds(query, products) {
-        if (!products || Object.keys(products).length === 0) {
-            console.error('No products found.');
-            return [];
-        }
-
-        const lowerCaseQuery = query.toLowerCase();
-        const filteredProductIds = Object.keys(products)
-            .filter(id => {
-                const product = products[id];
-                const productTitle = product.title ? product.title.toLowerCase() : '';
-                return productTitle.includes(lowerCaseQuery);
-            });
-
-        return filteredProductIds;
-    }
-
-    // Function to get products by IDs
-    function getProductsByIds(ids, products) {
-        return ids.map(id => products[id]);
-    }
-
-    // Function to display search results using Handlebars
-    function displaySearchResults(products) {
-        const templateSource = document.getElementById('search-results-template').innerHTML;
-        const template = Handlebars.compile(templateSource);
-        const html = template({ products: products });
-        document.getElementById('search-results').innerHTML = html;
-    }
-
-    // Get search query from URL parameters
-    const query = getQueryParameter('query');
-    if (query) {
-        const products = fetchProducts();
-        const filteredProductIds = filterProductIds(query, products);
-        const filteredProducts =  getProductsByIds(filteredProductIds, products);
-        displaySearchResults(filteredProducts);
-    }
-</script>
+<script src="js/search-functions.js"></script>
 </body>
 </html>
 
