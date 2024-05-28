@@ -50,8 +50,6 @@ function updateCartItemCount() {
         document.getElementById('itemCount').textContent = itemCount;
     } else{
         // Initialize item count
-
-
         document.getElementById('itemCount').textContent = itemCount;
     }
 }
