@@ -10,15 +10,19 @@
     <!-- Bootstrap core JS-->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/loadDataIntoStorage.js"></script>
+    <!-- Load Navbar script -->
+    <script src="js/include-navbar-and-footer.js"></script>
+
+
+    <script src="js/AddToCart.js"></script>
 
 
     <title>Home</title>
 </head>
+
+<body onload="loadDataFromJSON()">
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
-<body onload="loadDataFromJSON()">
-
-
 
 
 <!-- Section-->
@@ -166,7 +170,7 @@
                 </div>
 
             </div>
-            <div class="text-center"><a class="btn btn-primary mt-auto"
+            <div class="text-center py-4"><a class="btn btn-primary mt-auto"
                                         href="filteredProducts.html?type=all">View All Products</a>
             </div>
         </div>
@@ -175,12 +179,6 @@
     <div id="footer-placeholder"></div>
 </div>
 
-<!-- Bootstrap core JS-->
-<script src="js/bootstrap.bundle.min.js"></script>
-
-<script src="js/AddToCart.js"></script>
-<!-- Load Navbar script -->
-<script src="js/include-navbar-and-footer.js"></script>
 
 </body>
 </html>
