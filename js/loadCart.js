@@ -1,7 +1,7 @@
 // Function to load cart items
 function loadCart() {
     // Retrieve the cart items from sessionStorage and products from localStorage
-    let cartItemKeysString = sessionStorage.getItem('cartItems');
+    let cartItemKeysString = sessionStorage.getItem('cartItems') || [];
     let allProductsString = localStorage.getItem('products');
 
     // Parse the JSON string back into a JavaScript object

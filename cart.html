@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <title>Cart</title>
@@ -22,63 +23,68 @@
 
 <div class="wrapper">
     <main class="main-content flex-grow-1">
-        <div class="container">
-            <section class="py-5 my-4">
-                <h3>Cart</h3>
-                <div id="cart-items">
-                    <!-- Handlebars template for displaying cart items -->
-                    <script id="product-template" type="text/x-handlebars-template">
-                        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-6">
+        <div class="container my-2">
+
+            <h3>Cart</h3>
+            <div class="row  row-cols-1 row-cols-md-8 row-cols-lg-12">
+                <div class="col-12 col-sm-12  col-md-12 col-lg-9">
+                    <div id="cart-items">
+                        <!-- Handlebars template for displaying cart items -->
+                        <script id="product-template" type="text/x-handlebars-template">
+
                             {{#each cartItems}}
                                 <!-- Display each item in the cart -->
-                                <div class="col mb-5">
-                                    <!-- Card for each item -->
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="product.html?id={{@key}}">
-                                            <h5 class="card-title">{{this.title}}</h5>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">{{this.price}}</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <!-- Delete button for each item -->
-                                            <button class="btn btn-secondary delete-item-btn w-100"
-                                                    onclick="deleteItem({{@index}})">
-                                                Delete
-                                            </button>
-                                        </div>
+
+                                <div class="row cart-container">
+
+                                    <div class="col-md-2">
+                                        <a href="product.html?id={{this.id}}">
+                                        <img class="img-fluid rounded-start" src="{{this.image}}"
+                                             alt="no data found"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+
+                                        <a href="product.html?id={{this.id}}">
+                                        <h5>{{this.title}}</h5>
+                                        </a>
+                                        <p class="card-text mt-auto">Price: {{this.price}} €</p>
+
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-secondary delete-item-btn mt-2"
+                                                onclick="deleteItem({{@index}})">Delete
+                                        </button>
                                     </div>
                                 </div>
+
+
+
                             {{/each}}
-                        </div>
-                        <div class="container my-4" id="checkout">
-                            <!-- Display total price -->
-                            <div>
-                                <h4>Total Price: <span id="total-price"></span>€</h4>
                             </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Button to go to checkout -->
-                                    <a class="btn btn-primary w-100" href="checkout.html">Go to Checkout</a>
-                                </div>
-                            </div>
-                        </div>
+
+
+                        </script>
 
                     </div>
-                    <div id="empty-cart"><h4>Your Cart is empty</h4></div>
-                </script>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3" id="checkout">
+                    <div class="card">
+                        <div class="card-header"><h4>Total Price: <span id="total-price"></span>€</h4></div>
+                        <div class="card-footer"><a class="btn btn-primary w-100" href="checkout.html">Go to
+                            Checkout</a></div>
+                    </div>
+
+                </div>
+                <div id="empty-cart"><h4>Your Cart is empty</h4></div>
             </div>
-        </section>
-
-    </div>
+        </div>
 
 
+    </main>
 
-</main>
 
-         
     <!-- Footer-->
     <div id="footer-placeholder"></div>
 </div>
