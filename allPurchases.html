@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All Purchases</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.bundle.js"></script>
+    <!-- Handlebars library -->
+    <script src="js/handlebars.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="js/AddToCart.js"></script>
+    <script src="js/include-navbar-and-footer.js"></script>
+    <script src="js/form-validation.js"></script>
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
 </head>
-<body>
+
+<body onload="displayAllPurchases()">
+<!-- Load Navbar -->
+<div id="navbar-placeholder"></div>
+<div class="container py-5 my-5" id="purchases-container">
+    <!-- Handlebars template for purchase display -->
+    <script id="purchase-template" type="text/x-handlebars-template">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Purchase Time</th>
+                <th scope="col">Total Price</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each allpurchases}}
+                <tr data-toggle="collapse" data-target=".details-row{{@index}}" aria-expanded="false">
+                    <td>{{formatTime timestamp}}</td>
+                    <td>{{totalPrice}}€</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="toggleDetails({{@index}})">Show Details
+                        </button>
+
+                    </td>
+                </tr>
+                <tr class="collapse details-row{{@index}}">
+                    <td colspan="3">
+                        <h6>Items:</h6>
+                        <ul>
+                            {{#each items}}
+                                <li>{{title}}: {{price}}€</li>
+                            {{/each}}
+                        </ul>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </script>
+</div>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Script to format time -->
+<script>
+    // Helper function to format time without milliseconds
+    Handlebars.registerHelper('formatTime', function (timestamp) {
+        return new Date(timestamp).toLocaleString('en-US', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        });
+    });
+</script>
+<script>
+    function toggleDetails(index) {
+        // Find the corresponding details row based on the index
+        const detailsRow = document.querySelector('.details-row' + index);
+
+        // Toggle the visibility of the details row
+        if (detailsRow.style.display === 'none' || detailsRow.style.display === '') {
+            detailsRow.style.display = 'table-row';
+        } else {
+            detailsRow.style.display = 'none';
+        }
+    }
+</script>
+
 
 </body>
 </html>
