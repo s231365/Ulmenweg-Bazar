@@ -50,6 +50,9 @@ function updateCartItemCount() {
 
         // Update the item count displayed in the badge
         document.getElementById('itemCount').textContent = itemCount;
+    } else{
+        // Initialize item count
+        document.getElementById('itemCount').textContent = itemCount;
     }
 }
 
