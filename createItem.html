@@ -19,110 +19,113 @@
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
-<div class="container">
-    <section class="py-5 my-4">
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <div class="container">
+            <section class="py-5 my-4">
+                <div class="col-md-7 col-lg-8">
+                    <h3>Create new Item</h3>
+                    <form class="needs-validation" onsubmit="validate(this, event)" novalidate>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="name" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid Title is required.
+                                </div>
+                            </div>
 
-        <div class="col-md-7 col-lg-8">
-            <h3>Create new Item</h3>
-            <form class="needs-validation" onsubmit="validate(this, event)" novalidate>
-                <div class="row g-3">
-                    <div class="col-sm-6">
-                        <label for="name" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="name" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid Title is required.
+                            <div class="col-sm-6">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="price" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid Price is required.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description" placeholder="" value=""
+                                       required>
+                                <div class="invalid-feedback">
+                                    Description is required.
+                                </div>
+                                <br>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Shipping</label><br>
+                                <input type="radio" id="shipping-true" name="shipping" value="true" required>
+                                <label for="shipping-true">Yes</label><br>
+                                <input type="radio" id="shipping-false" name="shipping" value="false" required>
+                                <label for="shipping-false">No</label><br>
+                                <div class="invalid-feedback">
+                                    Please select shipping option.
+                                </div>
+                                <br>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Condition of product</label><br>
+                                <input type="radio" id="condition-new" name="condition" value="new" required>
+                                <label for="condition-new">New</label><br>
+                                <input type="radio" id="condition-used" name="condition" value="used" required>
+                                <label for="condition-used">Used</label><br>
+                                <input type="radio" id="condition-heavily-used" name="condition" value="heavily-used"
+                                       required>
+                                <label for="condition-heavily-used">Heavily Used</label><br>
+                                <div class="invalid-feedback">
+                                    Please select condition.
+                                </div>
+                                <br>
+                            </div>
+
+
+                            <div class="col-12">
+                                <label class="form-label">Category</label><br>
+                                <input type="radio" id="c1" name="category" value="Kitchen Item" required>
+                                <label for="c1">Kitchen Item</label><br>
+                                <input type="radio" id="c2" name="category" value="Ticket">
+                                <label for="c2">Ticket</label><br>
+                                <input type="radio" id="c3" name="category" value="Electronics" required>
+                                <label for="c3">Electronics</label><br>
+                                <input type="radio" id="c4" name="category" value="Furniture" required>
+                                <label for="c4">Furniture</label><br>
+                                <input type="radio" id="c5" name="category" value="Outdoor" required>
+                                <label for="c5">Outdoor</label><br>
+                                <input type="radio" id="c6" name="category" value="Give Away" required>
+                                <label for="c6">Give Away</label><br>
+                                <input type="radio" id="c7" name="category" value="Other" required>
+                                <label for="c7">Other</label><br>
+                                <div class="invalid-feedback">
+                                    Please select category.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Pictures</label><br>
+                                <input type="file" id="myfile" name="image"><br><br>
+
+
+                                <div class="invalid-feedback">
+                                    Please choose picture
+                                </div>
+                            </div>
+
+
                         </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="price" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid Price is required.
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Description is required.
-                        </div>
-                        <br>
-                    </div>
-
-                    <div class="col-12">
-                        <label class="form-label">Shipping</label><br>
-                        <input type="radio" id="shipping-true" name="shipping" value="true" required>
-                        <label for="shipping-true">Yes</label><br>
-                        <input type="radio" id="shipping-false" name="shipping" value="false" required>
-                        <label for="shipping-false">No</label><br>
-                        <div class="invalid-feedback">
-                            Please select shipping option.
-                        </div>
-                        <br>
-                    </div>
-
-                    <div class="col-12">
-                        <label class="form-label">Condition of product</label><br>
-                        <input type="radio" id="condition-new" name="condition" value="new" required>
-                        <label for="condition-new">New</label><br>
-                        <input type="radio" id="condition-used" name="condition" value="used" required>
-                        <label for="condition-used">Used</label><br>
-                        <input type="radio" id="condition-heavily-used" name="condition" value="heavily-used" required>
-                        <label for="condition-heavily-used">Heavily Used</label><br>
-                        <div class="invalid-feedback">
-                            Please select condition.
-                        </div>
-                        <br>
-                    </div>
-
-
-                    <div class="col-12">
-                        <label class="form-label">Category</label><br>
-                        <input type="radio" id="c1" name="category" value="Kitchen Item" required>
-                        <label for="c1">Kitchen Item</label><br>
-                        <input type="radio" id="c2" name="category" value="Ticket">
-                        <label for="c2">Ticket</label><br>
-                        <input type="radio" id="c3" name="category" value="Electronics" required>
-                        <label for="c3">Electronics</label><br>
-                        <input type="radio" id="c4" name="category" value="Furniture" required>
-                        <label for="c4">Furniture</label><br>
-                        <input type="radio" id="c5" name="category" value="Outdoor" required>
-                        <label for="c5">Outdoor</label><br>
-                        <input type="radio" id="c6" name="category" value="Give Away" required>
-                        <label for="c6">Give Away</label><br>
-                        <input type="radio" id="c7" name="category" value="Other" required>
-                        <label for="c7">Other</label><br>
-                        <div class="invalid-feedback">
-                            Please select category.
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <label class="form-label">Pictures</label><br>
-                        <input type="file" id="myfile" name="image"><br><br>
-
-
-                        <div class="invalid-feedback">
-                            Please choose picture
-                        </div>
-                    </div>
-
-
+                        <button id="create" class="w-100 btn btn-primary btn-lg my-4" type="submit">Create</button>
+                    </form>
                 </div>
-                <button id="create" class="w-100 btn btn-primary btn-lg my-4" type="submit">Create</button>
-            </form>
+            </section>
         </div>
-    </section>
+    </main>
+    <!-- Footer-->
+    <div id="footer-placeholder"></div>
 </div>
-
 
 <script src="js/form-validation.js"></script>
 <script src="js/newProduct.js"></script>
 
-
-<!-- Footer-->
-<div id="footer-placeholder"></div>
 </body>
 </html>

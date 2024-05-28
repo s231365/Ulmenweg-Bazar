@@ -11,41 +11,46 @@
     <script src="js/loadCart.js"></script>
 </head>
 <body onload="displayDateTime(); loadCart();">
+
 <div id="navbar-placeholder"></div>
 <!-- Bootstrap core JS-->
 <script src="js/bootstrap.bundle.min.js"></script>
 
-<div class="container thank-you-container py-5">
-    <div class="text-center">
-        <h1 class="mb-4">Thank You!</h1>
-        <p class="mb-4">Your order for these items has been successfully placed.</p>
-        <p id="date-time" class="mb-4"></p>
-    </div>
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <div class="container thank-you-container py-5">
+            <div class="text-center">
+                <h1 class="mb-4">Thank You!</h1>
+                <p class="mb-4">Your order for these items has been successfully placed.</p>
+                <p id="date-time" class="mb-4"></p>
+            </div>
 
-    <div id="cart-items" class="mb-4">
-        <script id="product-template" type="text/x-handlebars-template">
-            <ul class="list-group mb-3">
-                {{#each cartItems}}
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">{{this.title}}</h6>
+            <div id="cart-items" class="mb-4">
+                <script id="product-template" type="text/x-handlebars-template">
+                    <ul class="list-group mb-3">
+                        {{#each cartItems}}
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">{{this.title}}</h6>
 
-                        </div>
-                        <span class="text-muted">{{this.price}} €</span>
-                    </li>
-                {{/each}}
-            </ul>
-        </script>
-    </div>
+                                </div>
+                                <span class="text-muted">{{this.price}} €</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </script>
+            </div>
 
-    <div class="text-center">
-        <p class="mb-4">We appreciate your business.</p>
-        <a href="allPurchases.html" class="btn btn-primary">See all purchases</a>
-        <a href="home.html" class="btn btn-primary">Back to Home</a>
-    </div>
+            <div class="text-center">
+                <p class="mb-4">We appreciate your business.</p>
+                <a href="allPurchases.html" class="btn btn-primary">See all purchases</a>
+                <a href="home.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer-placeholder"></div>
 </div>
-
-<div id="footer-placeholder"></div>
 
 <script>
     function displayDateTime() {
