@@ -300,6 +300,246 @@
         "outdoor"
       ],
       "image": "img/products/outdoorHammock.webp"
+    },
+    "26": {
+      "id": "26",
+      "title": "Portable Charger",
+      "price": "25.00",
+      "description": "A handy portable charger for all your electronic devices.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "electronics"
+      ],
+      "image": "img/products/portableCharger.jpg"
+    },
+    "27": {
+      "id": "27",
+      "title": "Free Cooking Book",
+      "price": "0.00",
+      "description": "A free cooking book for students who want to learn quick and easy recipes.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/freeCookingBook.jpg"
+    },
+    "28": {
+      "id": "28",
+      "title": "Camping Lantern",
+      "price": "20.00",
+      "description": "A durable camping lantern for your outdoor adventures.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/campingLantern.jpg"
+    },
+    "29": {
+      "id": "29",
+      "title": "Desk Lamp",
+      "price": "15.00",
+      "description": "A stylish desk lamp for your study needs.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/deskLamp.jpg"
+    },
+    "30": {
+      "id": "30",
+      "title": "Concert Tickets for Coldplay",
+      "price": "100.00",
+      "description": "Two tickets for the upcoming Coldplay concert.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/coldplayTickets.jpg"
+    },
+    "31": {
+      "id": "31",
+      "title": "Free Yoga Mat",
+      "price": "0.00",
+      "description": "A free yoga mat for your fitness journey.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/freeYogaMat.jpg"
+    },
+    "32": {
+      "id": "32",
+      "title": "Bluetooth Headphones",
+      "price": "50.00",
+      "description": "High-quality Bluetooth headphones with excellent sound.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "electronics"
+      ],
+      "image": "img/products/bluetoothHeadphones.jpg"
+    },
+    "33": {
+      "id": "33",
+      "title": "Outdoor Fire Pit",
+      "price": "75.00",
+      "description": "An outdoor fire pit, perfect for those chilly nights.",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/outdoorFirePit.jpg"
+    },
+    "34": {
+      "id": "34",
+      "title": "Bookshelf",
+      "price": "30.00",
+      "description": "A sturdy bookshelf to keep your books organized.",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/bookshelf.jpg"
+    },
+    "35": {
+      "id": "35",
+      "title": "Free Water Bottle",
+      "price": "0.00",
+      "description": "A free water bottle to keep you hydrated.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/freeWaterBottle.jpg"
+    },
+    "36": {
+      "id": "36",
+      "title": "Toaster",
+      "price": "15.00",
+      "description": "A reliable toaster for your kitchen needs.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "kitchen"
+      ],
+      "image": "img/products/toaster.jpg"
+    },
+    "37": {
+      "id": "37",
+      "title": "Theater Tickets for Hamilton",
+      "price": "80.00",
+      "description": "Two tickets for the popular musical, Hamilton.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "tickets"
+      ],
+      "image": "img/products/hamiltonTickets.jpg"
+    },
+    "38": {
+      "id": "38",
+      "title": "Camping Cooler",
+      "price": "40.00",
+      "description": "A camping cooler to keep your food and drinks cold.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "outdoor"
+      ],
+      "image": "img/products/campingCooler.jpg"
+    },
+    "39": {
+      "id": "39",
+      "title": "Coffee Table",
+      "price": "25.00",
+      "description": "A stylish coffee table for your living room.",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/coffeeTable.jpg"
+    },
+    "40": {
+      "id": "40",
+      "title": "MacBook Air 2020",
+      "price": "500.00",
+      "description": "A used MacBook Air for your study or work needs.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "electronic"
+      ],
+      "image": "img/products/macbook.jpg"
+    },
+    "41": {
+      "id": "41",
+      "title": "Wireless Mouse",
+      "price": "20.00",
+      "description": "A wireless mouse, perfect for your computing needs.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "electronics"
+      ],
+      "image": "img/products/wirelessMouse.jpg"
+    },
+    "42": {
+      "id": "42",
+      "title": "Iron Man 2 Action Figure",
+      "price": "20.00",
+      "description": "Selling an Iron Man 2 Action Figure still in its package.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "other"
+      ],
+      "image": "img/products/ironManFigure.jpg"
+    },
+    "43": {
+      "id": "43",
+      "title": "Dining Table",
+      "price": "50.00",
+      "description": "A dining table, perfect for your kitchen or dining room.",
+      "shipping": false,
+      "condition": "used",
+      "tags": [
+        "furniture"
+      ],
+      "image": "img/products/diningTable.jpg"
+    },
+    "44": {
+      "id": "44",
+      "title": "Laptop backpack",
+      "price": "30.00",
+      "description": "My barely used backpack for laptops.",
+      "shipping": true,
+      "condition": "new",
+      "tags": [
+        "other"
+      ],
+      "image": "img/products/backpack.jpg"
+    },
+    "45": {
+      "id": "45",
+      "title": "Free Fitness Band",
+      "price": "0.00",
+      "description": "A free fitness band to track your workouts.",
+      "shipping": true,
+      "condition": "used",
+      "tags": [
+        "giveaway"
+      ],
+      "image": "img/products/freeFitnessBand.jpg"
     }
   }
 }
