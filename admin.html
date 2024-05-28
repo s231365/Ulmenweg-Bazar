@@ -14,7 +14,6 @@
     <title>Admin</title>
 
 
-
 </head>
 
 <body onload="loadItems()">
@@ -23,35 +22,39 @@
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
-<div class="container">
-    <section class="py-5 my-4">
-        <h2>Admin</h2>
-        <a href="createItem.html" class="btn btn-primary">Create new Item</a>
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <div class="container">
+            <section class="py-5 my-4">
+                <h2>Admin</h2>
+                <a href="createItem.html" class="btn btn-primary">Create new Item</a>
 
-        <script id="products" type="text/x-handlebars-template">
-            <div class="row">
-                {{#each products}}
+                <script id="products" type="text/x-handlebars-template">
+                    <div class="row">
+                        {{#each products}}
 
-                    <div class="col-8 col-sm-6 col-md-4 col-xl-3">
-                        <div class="card my-4" style="width: 15rem; height: 20rem">
-                            <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{this.title}}</h5>
-                                <p class="card-text">{{this.price}}</p>
-                                <a href="#" class="btn btn-primary" onclick="deleteItem({{@index}}) ">Delete</a>
-                                <a href="#" class="btn btn-primary">Change</a>
+                            <div class="col-8 col-sm-6 col-md-4 col-xl-3">
+                                <div class="card my-4" style="width: 15rem; height: 20rem">
+                                    <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{this.title}}</h5>
+                                        <p class="card-text">{{this.price}}</p>
+                                        <a href="#" class="btn btn-primary" onclick="deleteItem({{@index}}) ">Delete</a>
+                                        <a href="#" class="btn btn-primary">Change</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                {{/each}}
-            </div>
-        </script>
-    </section>
+                        {{/each}}
+                    </div>
+                </script>
+            </section>
+        </div>
+    </main>
+    <!-- Footer-->
+    <div id="footer-placeholder"></div>
 </div>
 
 
-<!-- Footer-->
-<div id="footer-placeholder"></div>
 </body>
 </html>
