@@ -51,7 +51,7 @@ html, body {
 
 .main-content {
     flex-grow: 1;
-    padding-top: 56px;
+
 }
 
 footer {
@@ -59,4 +59,33 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
+}
+
+.header-image {
+    background: url('../img/ulmenweg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+}
+
+
+.overlay-content {
+    position: relative;
+    z-index: 1;
+}
+
+.text-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 10px;
 }
