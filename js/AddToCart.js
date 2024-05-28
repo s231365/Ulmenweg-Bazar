@@ -4,6 +4,7 @@ function addToCart(key) {
         cartItems.push(key);
         sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
         alert('Item added to cart!');
+        location.reload();
     } else {
         alert('item already in cart!');
     }
