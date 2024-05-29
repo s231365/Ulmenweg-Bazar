@@ -29,7 +29,6 @@
     </div>
 </div>
 
-
 <div class="wrapper">
     <main class="main-content flex-grow-1">
 
@@ -81,7 +80,7 @@
                 });
             </script>
 
-                <script id="show-products" type="text/x-handlebars-template">
+            <script id="show-products" type="text/x-handlebars-template">
 
                     <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         {{#each value}}
@@ -95,14 +94,6 @@
                                             <div class="text-center">
                                                 <h5 class="card-title">{{this.title}}</h5>
                                                 <p class="card-text">{{this.price}} €</p>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer text-center">
-                                                <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                                                <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                        onclick="addToCart({{this.id}})">
-                                                    Add to cart
-                                                </button>
                                             </div>
                                         </div>
                                         <div class="card-footer text-center">
