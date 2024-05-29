@@ -1,11 +1,27 @@
 function addToCart(key) {
     let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+    let addModal = new bootstrap.Modal(document.getElementById('cartModal'));
+    let modalHeader = document.querySelector('#cartModal .modal-header');
+
     if (!cartItems.includes(key)) {
         cartItems.push(key);
         sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-        alert('Item added to cart!');
-        location.reload();
+        modalHeader.innerHTML = 'Added to Cart';
+        modalHeader.style.backgroundColor = '#42FF27';      //green
+        modalHeader.style.color = 'black';
     } else {
-        alert('item already in cart!');
+        modalHeader.innerHTML = 'Item already in Cart';
+        modalHeader.style.backgroundColor = 'red';
+        modalHeader.style.color = 'white';
     }
+    addModal.show();
+
+    setTimeout(() => {
+        addModal.hide();
+        reloadPage()
+    }, 1500);
+}
+
+function reloadPage() {
+    location.reload();
 }

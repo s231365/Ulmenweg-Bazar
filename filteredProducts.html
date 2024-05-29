@@ -18,6 +18,17 @@
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Get Swifty</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="wrapper">
     <main class="main-content flex-grow-1">
         <section class="py-5 my-4">
@@ -88,8 +99,8 @@
                                             <div class="card-footer text-center">
                                                 <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
                                                 <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                        onclick="addToCart({{this.id}})">Add to
-                                                    cart
+                                                        onclick="addToCart({{this.id}})">
+                                                    Add to cart
                                                 </button>
                                             </div>
                                         </div>
