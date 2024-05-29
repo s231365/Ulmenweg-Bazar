@@ -8,6 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="2e208137-057c-419f-9e6d-9dab0bdc90b8" />
