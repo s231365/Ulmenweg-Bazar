@@ -36,34 +36,25 @@ function loadCart() {
         totalPrice += parseFloat(cartItems[key].price);
     }
 
-    if (window.location.pathname.endsWith('cart.html')){
-        styleCart(cartItemKeys,totalPrice);
-    }else{
-        let totalPriceElement = document.getElementById('total-price');
-        totalPriceElement.innerText = totalPrice.toFixed(2);
-    }
-
-
-}
-
-function styleCart(cartItemKeys,totalPrice) {
-
     // Display the total price in the HTML
     let totalPriceElement = document.getElementById('total-price');
     let checkoutButton = document.getElementById('checkout');
     let emptyCartMessage = document.getElementById('empty-cart');
-
-    if (cartItemKeys.length > 0) {
-        // If cart is not empty
+    if (window.location.pathname.endsWith('cart.html') && cartItemKeys.length > 0) {
         totalPriceElement.innerText = totalPrice.toFixed(2);
         checkoutButton.style.display = 'block';
         emptyCartMessage.style.display = 'none';
+        //styleCart(cartItemKeys, totalPrice);
+    } else if (window.location.pathname.endsWith('checkout.html')) {
+        totalPriceElement.innerText = totalPrice.toFixed(2);
     } else {
         // If cart is empty
         checkoutButton.style.display = 'none';
         emptyCartMessage.style.display = 'block';
     }
+
 }
+
 
 // Function to delete an item from the cart
 function deleteItem(indexToDelete) {
