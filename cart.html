@@ -6,92 +6,76 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <title>Cart</title>
-    <!-- Bootstrap core JS-->
+    <!-- Bootstrap core JS -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/handlebars.min.js"></script>
     <!-- Load Header script -->
     <script src="js/include-navbar-and-footer.js"></script>
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/loadCart.js"></script>
-
-
 </head>
 <body onload="loadCart()">
 
-<!--load Navbar-->
+<!-- Load Navbar -->
 <div id="navbar-placeholder"></div>
 
 <div class="wrapper">
     <main class="main-content flex-grow-1">
-        <div class="container my-2">
-
+        <div class="container">
             <h3>Cart</h3>
-            <div class="row  row-cols-1 row-cols-md-8 row-cols-lg-12">
-                <div class="col-12 col-sm-12  col-md-12 col-lg-9">
+            <div class="row">
+                <div class="col-12 col-lg-9">
                     <div id="cart-items">
                         <!-- Handlebars template for displaying cart items -->
                         <script id="product-template" type="text/x-handlebars-template">
-
                             {{#each cartItems}}
-                                <!-- Display each item in the cart -->
-
-                                <div class="row cart-container">
-
-                                    <div class="col-md-2">
+                                <div class="row cart-container mb-3 mx-1 ">
+                                    <div class="col-4 col-md-2 justify-content-center">
                                         <a href="product.html?id={{this.id}}">
-                                        <img class="img-fluid rounded-start" src="{{this.image}}"
-                                             alt="no data found"/>
+                                        <img class="img-fluid rounded-start" src="{{this.image}}" alt="Product Image"/>
                                         </a>
                                     </div>
-                                    <div class="col-md-8">
-
+                                    <div class="col-8 col-md-8 d-flex flex-column ">
                                         <a href="product.html?id={{this.id}}">
-                                        <h5>{{this.title}}</h5>
+                                        <h4 class="mb-1">{{this.title}}</h4>
                                         </a>
-                                        <p class="card-text mt-auto">Price: {{this.price}} €</p>
-
+                                        <h6>Shipping: {{this.shipping}}</h6>
 
                                     </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-secondary delete-item-btn mt-2"
-                                                onclick="deleteItem({{@index}})">Delete
+                                    <div class="col-12 col-md-2 d-flex flex-column justify-content-between align-items-end">
+                                        <h4 class="mt-2">{{this.price}} €</h4>
+                                        <button type="button" class="btn btn-outline-danger delete-item-btn" onclick="deleteItem({{@index}})">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                            </svg>
                                         </button>
                                     </div>
                                 </div>
-
-
-
                             {{/each}}
-                            </div>
-
-
                         </script>
-
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3" id="checkout">
+                <div class="col-12 col-lg-3 my-2" id="checkout">
                     <div class="card">
-                        <div class="card-header"><h4>Total Price: <span id="total-price"></span>€</h4></div>
-                        <div class="card-footer"><a class="btn btn-primary w-100" href="checkout.html">Go to
-                            Checkout</a></div>
+                        <div class="card-header">
+                            <h4>Total Price: <span id="total-price"></span>€</h4>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary w-100" href="checkout.html">Go to Checkout</a>
+                        </div>
                     </div>
-
                 </div>
-                <div id="empty-cart"><h4>Your Cart is empty</h4></div>
+                <div class="col-12" id="empty-cart">
+                    <h4>Your Cart is empty</h4>
+                </div>
             </div>
         </div>
-
-
     </main>
 
-
-    <!-- Footer-->
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
 </div>
 
-
 <script src="js/form-validation.js"></script>
-
 </body>
-
 </html>

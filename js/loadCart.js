@@ -27,6 +27,7 @@ function loadCart() {
     // Render the template with the cartItems data and insert it into the HTML
     document.getElementById('cart-items').innerHTML += template({cartItems: cartItems});
 
+
     // Calculate total price and display it
     let totalPrice = 0;
 
@@ -35,7 +36,13 @@ function loadCart() {
         totalPrice += parseFloat(cartItems[key].price);
     }
 
-    styleCart(cartItemKeys,totalPrice);
+    if (window.location.pathname.endsWith('cart.html')){
+        styleCart(cartItemKeys,totalPrice);
+    }else{
+        let totalPriceElement = document.getElementById('total-price');
+        totalPriceElement.innerText = totalPrice.toFixed(2);
+    }
+
 
 }
 
