@@ -26,11 +26,16 @@ function copy() {
 
         let cartItems = {};
 
-        // Fill in title and price of products contained in the cartItemKeys array into cartItems map
+        /// Fill in title, price, and image URL of products contained in the cartItemKeys array into cartItems map
         cartItemKeys.forEach(itemKey => {
             if (allProducts[itemKey]) {
                 let product = allProducts[itemKey];
-                cartItems[itemKey] = { title: product.title, price: parseFloat(product.price) };
+                cartItems[itemKey] = {
+                    title: product.title,
+                    price: parseFloat(product.price),
+                    image: product.image,
+                    id: product.id
+                };
             }
         });
 
@@ -80,6 +85,7 @@ function displayAllPurchases() {
         totalPrice: data.totalPrice ? data.totalPrice.toFixed(2) : 0  // Check if totalPrice exists
     }));
 
+    purchasesArray.reverse();
     // Render the template with the purchases data
     container.innerHTML = template({ allpurchases: purchasesArray });
 }

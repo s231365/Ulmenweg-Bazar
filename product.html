@@ -21,52 +21,62 @@
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
 
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Get Swifty</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="wrapper">
     <main class="main-content flex-grow-1">
-        <section class="py-5 my-4 px-4 px-lg-5 mt-5">
-            <div class="container">
-                <!--load products-->
-                <ul id="product-list"></ul>
 
-                <script id="product-template" type="text/x-handlebars-template">
-                    {{#each products}}
-                        <div class="row">
-                            <h2>{{this.title}}</h2>
+        <div class="container py-5">
+            <!--load products-->
+            <ul id="product-list"></ul>
+
+            <script id="product-template" type="text/x-handlebars-template">
+                {{#each products}}
+                    <div class="row">
+                        <h2>{{this.title}}</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-8 ">
+                            <img class="img-fluid" src="{{this.image}}" alt="Product Image">
+                        </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card my-4">
+                            <div class="card-header">
+                                <h3>Price {{this.price}} €</h3>
+                            </div>
+                            <div class="card-body">
+                                <button id="addToCartBtn" class="btn btn-primary w-100"
+                                        onclick="addToCart({{this.id}})">Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Description:</h4>
+                                <p>{{this.description}}</p>
+                                <h5>Categories:</h5>
+                                <p>{{this.tags}}</p>
+                                <h5>Condition:</h5>
+                                <p>{{this.condition}}</p>
+                                <h5>Shipping:</h5>
+                                <p>{{this.shipping}}</p>
+                            </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-12 col-md-8 mb-4 mb-md-0">
-                                <img class="img-fluid" src="{{this.image}}" alt="Product Image">
-                            </div>
-                        <div class="col-12 col-md-4">
-                            <div class="card my-4">
-                                <div class="card-header">
-                                    <h3>Price {{this.price}} €</h3>
-                                </div>
-                                <div class="card-body">
-                                    <button id="addToCartBtn" class="btn btn-primary w-100"
-                                            onclick="addToCart({{this.id}})">Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4>Description:</h4>
-                                    <p>{{this.description}}</p>
-                                    <h5>Categories:</h5>
-                                    <p>{{this.tags}}</p>
-                                    <h5>Condition:</h5>
-                                    <p>{{this.condition}}</p>
-                                    <h5>Shipping:</h5>
-                                    <p>{{this.shipping}}</p>
-                                </div>
-                            </div>
+                {{/each}}
 
-                    {{/each}}
+            </script>
+        </div>
 
-                </script>
-            </div>
-        </section>
     </main>
     <!-- Footer-->
     <div id="footer-placeholder"></div>

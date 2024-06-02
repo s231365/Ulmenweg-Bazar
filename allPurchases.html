@@ -21,47 +21,54 @@
 <body onload="displayAllPurchases()">
 <!-- Load Navbar -->
 <div id="navbar-placeholder"></div>
-<div class="container py-5 my-5" id="purchases-container">
-    <!-- Handlebars template for purchase display -->
-    <script id="purchase-template" type="text/x-handlebars-template">
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Purchase Time</th>
-                <th scope="col">Total Price</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each allpurchases}}
-                <tr data-toggle="collapse" data-target=".details-row{{@index}}" aria-expanded="false">
-                    <td>{{formatTime timestamp}}</td>
-                    <td>{{totalPrice}}€</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" onclick="toggleDetails({{@index}})">Show Details
-                        </button>
+<div class="wrapper">
+    <main class="main-content flex-grow-1">
+        <div class="container my-5">
 
-                    </td>
-                </tr>
-                <tr class="collapse details-row{{@index}}">
-                    <td colspan="3">
-                        <h6>Items:</h6>
-                        <ul>
-                            {{#each items}}
-                                <li>{{title}}: {{price}}€</li>
-                            {{/each}}
-                        </ul>
-                    </td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    </script>
+            <h2>All Purchases</h2>
+            <div id="purchases-container">
+                <!-- Handlebars template for purchase display -->
+                <script id="purchase-template" type="text/x-handlebars-template">
+                    {{#each allpurchases}}
+                        <div class="card my-2">
+                            <div class="card-header d-flex justify-content-between align-items-center ">
+                                <h5>Order placed:  {{formatTime timestamp}}</h5>
+                                <h5> {{totalPrice}}€</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6>You purchased:</h6>
+
+                                {{#each items}}
+                                    <div class="list-group-item d-flex lh-sm justify-content-between ">
+
+                                        <img class="img-thumbnail" src="{{this.image}}" alt="">
+
+
+                                        <a href="product.html?id={{this.id}}">
+                                        <h6 class="mx-4">{{this.title}}</h6>
+                                        </a>
+
+                                        <span class="ml-auto">{{this.price}}€</span>
+                                    </div>
+                                {{/each}}
+
+                            </div>
+
+
+                        </div>
+                    {{/each}}
+
+                </script>
+
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
 </div>
 
-<!-- Footer -->
-<div id="footer-placeholder"></div>
 
 <!-- Script to format time -->
 <script>
@@ -69,22 +76,9 @@
     Handlebars.registerHelper('formatTime', function (timestamp) {
         return new Date(timestamp).toLocaleString('en-US', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-            hour: '2-digit', minute: '2-digit', second: '2-digit'
+
         });
     });
-</script>
-<script>
-    function toggleDetails(index) {
-        // Find the corresponding details row based on the index
-        const detailsRow = document.querySelector('.details-row' + index);
-
-        // Toggle the visibility of the details row
-        if (detailsRow.style.display === 'none' || detailsRow.style.display === '') {
-            detailsRow.style.display = 'table-row';
-        } else {
-            detailsRow.style.display = 'none';
-        }
-    }
 </script>
 
 
