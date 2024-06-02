@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary navbar-spacing">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container-fluid">
         <div class="row w-100">
-            <div class="col-2 d-flex align-items-center">
-                <a class="navbar-brand" href="home.html">
-                    <img class="img-fluid navbar-logo" src="/img/bazar.png" alt="Bazar Logo">
+            <div class="col-auto pr-0 d-flex align-items-center">
+                <a class="navbar-brand pr-0" href="home.html">
+                    <img class="mr-0 img-fluid navbar-logo" src="/img/bazar.png" alt="Bazar Logo">
                 </a>
             </div>
-            <div class="col-8 d-flex justify-content-center align-items-center">
+            <div class="col pl-0 d-flex justify-content-center align-items-center">
                 <form class="d-flex w-100 justify-content-center position-relative">
                     <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
                            aria-label="Search">
@@ -18,10 +18,8 @@
                     </button>
                 </form>
             </div>
-            <div class="col-2 d-flex justify-content-end align-items-center">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExampleDefault #navbarcategories"
-                        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="col-auto pl-0 pr-0 d-flex justify-content-end align-items-center">
+                <button class="navbar-toggler" type="button" id="sidebarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -58,10 +56,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="row w-100">
-            <div class="col-2 d-flex justify-content-end align-items-center">
-                <div class="collapse navbar-collapse justify-content-end" id="navbarscategories">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarcategories">
                     <ul class="navbar-nav justify-content-center w-100">
                         <li class="nav-item">
                             <a class="nav-link" href="filteredProducts.html?type=all">View all</a>
@@ -93,37 +89,30 @@
         </div>
     </div>
 </nav>
-<!--
-<nav class="navbar navbar-expand-md navbar-dark bg-primary navbar-spacing">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse categories-spacing" id="categoriesRow">
-            <ul class="navbar-nav justify-content-center w-100">
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=all">View all</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=kitchen">Kitchen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=tickets">Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=electronics">Electronics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=furniture">Furniture</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=outdoor">Outdoor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=giveaway">Give Away</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filteredProducts.html?type=other">Other</a>
-                </li>
-            </ul>
-        </div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h3>Ulmenweg Bazar</h3>
     </div>
-</nav>
--->
+    <ul class="list-unstyled components">
+        <li>
+            <a href="#" class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#profileSubMenu">Profile</a>
+            <ul class="collapse list-unstyled" id="profileSubMenu">
+                <li><a href="#">My profile</a></li>
+                <li><a href="allPurchases.html">Purchases</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><h3>Categories</h3></li>
+        <li><a href="filteredProducts.html?type=all">View all</a></li>
+        <li><a href="filteredProducts.html?type=kitchen">Kitchen</a></li>
+        <li><a href="filteredProducts.html?type=tickets">Tickets</a></li>
+        <li><a href="filteredProducts.html?type=electronics">Electronics</a></li>
+        <li><a href="filteredProducts.html?type=furniture">Furniture</a></li>
+        <li><a href="filteredProducts.html?type=outdoor">Outdoor</a></li>
+        <li><a href="filteredProducts.html?type=giveaway">Give Away</a></li>
+        <li><a href="filteredProducts.html?type=other">Other</a></li>
+    </ul>
+</aside>
