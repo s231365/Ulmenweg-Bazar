@@ -17,10 +17,18 @@
     align-items: center;
 }
 
+/* Custom class to adjust the position of the dropdown menu */
+.dropdown-menu-left {
+    transform: translateX(-50%); /* Adjust this value as needed */
+    left: 0 !important;
+    right: auto !important;
+}
+
 /* Navbar styling for larger screens */
 .navbar .collapse {
     display: flex !important;
 }
+
 
 /* Collapsible elements hide on smaller screens */
 @media (max-width: 767.98px) {
