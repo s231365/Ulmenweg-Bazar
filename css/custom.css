@@ -17,14 +17,113 @@
     align-items: center;
 }
 
-/* Optional: Adjust logo position */
-.navbar-brand img {
-    margin-right: 10px; /* Adjust the right margin as needed */
+/* Navbar styling for larger screens */
+.navbar .collapse {
+    display: flex !important;
+}
+
+/* Collapsible elements hide on smaller screens */
+@media (max-width: 767.98px) {
+    .navbar-nav {
+        display: none !important;
+    }
+}
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    overflow-y: auto;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #343a40;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 15px;
+    background: #343a40;
+}
+
+.sidebar .components {
+    padding: 0;
+}
+
+.sidebar .components li {
+    padding: 10px;
+}
+
+.sidebar .components li a {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar .components li a:hover {
+    background: #00929d;
+    color: #ffffff;
+}
+
+.sidebar .dropdown-menu {
+    background: #343a40;
+}
+
+.sidebar .dropdown-menu a {
+    color: #ffffff;
+}
+
+.sidebar .dropdown-menu a:hover {
+    background: #00929d;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+/* Hide the sidebar on larger screens */
+@media (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+/* CSS for sidebar toggling animation */
+.navbar-toggler-icon {
+    transition: transform 0.3s ease;
+}
+
+/* CSS for changing hamburger icon to X */
+.open .navbar-toggler-icon {
+    transform: rotate(90deg);
 }
 
 body {
     background-color: #f4f4f4;
 }
+
+@media (max-width: 767.98px) {
+    .navbar .form-control {
+        width: 100%;
+    }
+    .navbar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .navbar-nav .nav-item {
+        flex: 1 1 auto;
+    }
+}
+
+.container-fluid.mt-2 {
+    padding-top: 10px;
+}
+
 .thank-you-container {
     max-width: 600px;
     margin: 50px auto;

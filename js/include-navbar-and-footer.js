@@ -10,6 +10,8 @@ function loadNavbarAndFooter() {
                     event.preventDefault(); // Prevent form submission
                     handleSearch();
                 });
+                // Event listener for toggling the sidebar
+                document.getElementById('sidebarCollapse').addEventListener('click', toggleSidebar);
                 updateCartItemCount(); // Call function to update cart item count after loading navbar
             } else {
                 console.error('Error loading navbar:', navbarXhr.status);
@@ -34,6 +36,16 @@ function loadNavbarAndFooter() {
     footerXhr.send();
 }
 
+// Function to toggle the sidebar
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+
+    // Toggle the hamburger icon to X
+    var toggleButton = document.getElementById('sidebarCollapse');
+    toggleButton.classList.toggle('open');
+}
+
 function updateCartItemCount() {
     // Retrieve the cart items from local storage
     let cartItemsString = sessionStorage.getItem('cartItems');
@@ -48,7 +60,7 @@ function updateCartItemCount() {
 
         // Update the item count displayed in the badge
         document.getElementById('itemCount').textContent = itemCount;
-    } else{
+    } else {
         // Initialize item count
         document.getElementById('itemCount').textContent = itemCount;
     }
