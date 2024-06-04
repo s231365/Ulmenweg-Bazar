@@ -66,12 +66,12 @@ function askForDeletion(itemToDelete) {
     let yesButton = document.querySelector('#deleteModal .btn-primary');
 
     // Add event listeners
-    abortButton.addEventListener('click', function() {
+    abortButton.addEventListener('click', function () {
         delModal.hide();
     });
 
     // Yes Button
-    yesButton.addEventListener('click', function() {
+    yesButton.addEventListener('click', function () {
         delModal.hide();
         deleteItem(itemToDelete);
     });
@@ -88,7 +88,7 @@ function deleteItem(itemToDelete) {
     let cartItems = JSON.parse(cartItemsString);
 
     // Filter out the item to delete
-    let updatedCartItems = cartItems.filter(item => item !== itemToDelete);;
+    let updatedCartItems = cartItems.filter(item => item !== itemToDelete);
 
     // Update the cartItems in sessionStorage
     sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems));

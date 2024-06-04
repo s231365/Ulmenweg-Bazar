@@ -65,11 +65,10 @@
         if (recentPurchase) {
             const source = document.getElementById('product-template').innerHTML;
             const template = Handlebars.compile(source);
-            const cartHtml = template({
+            document.getElementById('cart-items').innerHTML = template({
                 cartItems: Object.values(recentPurchase.items),
                 totalPrice: recentPurchase.totalPrice.toFixed(2)
             });
-            document.getElementById('cart-items').innerHTML = cartHtml;
 
             const formattedDateTime = new Date(recentPurchaseTimestamp).toLocaleString('en-US', {
                 weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
