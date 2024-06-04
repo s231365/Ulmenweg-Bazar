@@ -1,6 +1,6 @@
 function loadNavbarAndFooter() {
     // Load navbar
-    var navbarXhr = new XMLHttpRequest();
+    const navbarXhr = new XMLHttpRequest();
     navbarXhr.onreadystatechange = function () {
         if (navbarXhr.readyState === XMLHttpRequest.DONE) {
             if (navbarXhr.status === 200) {
@@ -22,7 +22,7 @@ function loadNavbarAndFooter() {
     navbarXhr.send();
 
     // Load footer
-    var footerXhr = new XMLHttpRequest();
+    const footerXhr = new XMLHttpRequest();
     footerXhr.onreadystatechange = function () {
         if (footerXhr.readyState === XMLHttpRequest.DONE) {
             if (footerXhr.status === 200) {
@@ -38,18 +38,18 @@ function loadNavbarAndFooter() {
 
 // Function to toggle the sidebar
 function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
+    const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('show');
 
     // Toggle the hamburger icon to X
-    var toggleButton = document.getElementById('sidebarCollapse');
+    const toggleButton = document.getElementById('sidebarCollapse');
     toggleButton.classList.toggle('open');
 }
 
 // Function to close the sidebar
 function closeSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var toggleButton = document.getElementById('sidebarCollapse');
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('sidebarCollapse');
     if (sidebar.classList.contains('show')) {
         sidebar.classList.remove('show');
         toggleButton.classList.remove('open');
@@ -58,10 +58,10 @@ function closeSidebar() {
 
 // Event listener to close the sidebar when clicking outside of it
 document.addEventListener('click', function(event) {
-    var sidebar = document.getElementById('sidebar');
-    var navbar = document.querySelector('.navbar');
-    var isClickInsideSidebar = sidebar.contains(event.target);
-    var isClickInsideNavbar = navbar.contains(event.target);
+    const sidebar = document.getElementById('sidebar');
+    const navbar = document.querySelector('.navbar');
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickInsideNavbar = navbar.contains(event.target);
 
     if (!isClickInsideSidebar && !isClickInsideNavbar) {
         closeSidebar();

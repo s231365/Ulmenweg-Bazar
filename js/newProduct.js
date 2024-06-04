@@ -3,16 +3,17 @@ function createItem(form) {
     let products = JSON.parse(localStorage.getItem('products')) || {};
 
     // Retrieve form inputs
-    var title = form.elements.name.value;
-    var price = form.elements.price.value;
-    var description = form.elements.description.value;
-    var shipping = document.querySelector('input[name="shipping"]:checked').value;
-    var condition = document.querySelector('input[name="condition"]:checked').value;
-    var tag = document.querySelector('input[name="category"]:checked').value;
-    var image = form.elements.image.value;
+    const title = form.elements.name.value;
+    const price = form.elements.price.value;
+    const description = form.elements.description.value;
+    const shipping = document.querySelector('input[name="shipping"]:checked').value;
+    const condition = document.querySelector('input[name="condition"]:checked').value;
+    const tag = document.querySelector('input[name="category"]:checked').value;
+    const image = form.elements.image.value;
 
     // Generate a unique ID (UUID) for the new product
     let newProductId = 1; // Default to 1 if no products exist
+    let newProductIdS;
     if (Object.keys(products).length > 0) {
         // Get the last given ID and increment it by 1
         newProductId = parseInt(Object.keys(products).pop()) + 1;

@@ -27,7 +27,7 @@ function filterProductIds(query, products) {
     }
 
     const lowerCaseQuery = query.toLowerCase();
-    const filteredProductIds = Object.keys(products)
+    return Object.keys(products)
         .filter(id => {
             const product = products[id];
             const productTitle = product.title ? product.title.toLowerCase() : '';
@@ -64,8 +64,6 @@ function filterProductIds(query, products) {
                 return title1.localeCompare(title2);
             }
         });
-
-    return filteredProductIds;
 }
 
 // Function to get products by IDs
@@ -77,8 +75,7 @@ function getProductsByIds(ids, products) {
 function displaySearchResults(products) {
     const templateSource = document.getElementById('search-results-template').innerHTML;
     const template = Handlebars.compile(templateSource);
-    const html = template({ products: products });
-    document.getElementById('search-results').innerHTML = html;
+    document.getElementById('search-results').innerHTML = template({products: products});
 }
 
 // Get search query from URL parameters
