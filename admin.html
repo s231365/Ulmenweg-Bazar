@@ -30,17 +30,20 @@
                 <a href="createItem.html" class="btn btn-primary">Create new Item</a>
 
                 <script id="products" type="text/x-handlebars-template">
-                    <div class="row">
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         {{#each products}}
 
-                            <div class="col-8 col-sm-6 col-md-4 col-xl-3">
-                                <div class="card my-4" style="width: 15rem; height: 20rem">
+                            <div class="col my-2">
+                                <div class="card h-100">
                                     <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{this.title}}</h5>
-                                        <p class="card-text">{{this.price}}</p>
-                                        <a href="#" class="btn btn-primary" onclick="deleteItem({{@index}}) ">Delete</a>
-                                        <a href="#" class="btn btn-primary">Change</a>
+                                    <div class="card-body p-4 d-flex flex-column ">
+                                        <div class="text-center">
+                                            <h5 class="card-title">{{this.title}}</h5>
+                                            <p class="card-text">{{this.price}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center"><a href="#" class="btn btn-primary"
+                                                                            onclick="deleteItem({{@index}}) ">Delete</a>
                                     </div>
                                 </div>
                             </div>
