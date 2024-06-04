@@ -37,23 +37,24 @@
     }
 }
 
+/* Navbar styling */
+.navbar {
+    position: relative;
+    z-index: 1030; /* Ensure navbar is always on top */
+}
+
 /* Sidebar styling */
 .sidebar {
-    height: 100%;
-    overflow-y: auto;
+    position: absolute;
+    top: 75px; /* Adjust this if your navbar height is different */
+    height: calc(100% - 75px); /* Adjust height based on navbar height */
     width: 250px;
-    position: fixed;
-    top: 0;
+    overflow-y: auto;
     left: -250px;
     background-color: #343a40;
     color: white;
     transition: left 0.3s ease;
     z-index: 1000;
-}
-
-.sidebar-header {
-    padding: 15px;
-    background: #343a40;
 }
 
 .sidebar .components {
@@ -90,6 +91,7 @@
 .sidebar.show {
     left: 0;
 }
+
 
 /* Hide the sidebar on larger screens */
 @media (min-width: 768px) {
