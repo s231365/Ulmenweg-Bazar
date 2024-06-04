@@ -6,8 +6,8 @@ const productId = urlParams.get('id');
 const all_data = JSON.parse(localStorage.getItem('products'));
 const products = {};
 
-for (const key in all_data.products) {
-    const element = all_data.products[key];
+for (const key in all_data) {
+    const element = all_data[key];
     const element_id = element.id;
     if (element_id === productId) { // Checking if the key is equal to productId
         products[key] = element;

@@ -22,7 +22,7 @@ function copy() {
     if (cartItemKeysString && allProductsString) {
         // Parse the JSON strings back into JavaScript objects
         let cartItemKeys = JSON.parse(cartItemKeysString);
-        let allProducts = JSON.parse(allProductsString).products;
+        let allProducts = JSON.parse(allProductsString);
 
         let cartItems = {};
 

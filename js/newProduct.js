@@ -16,12 +16,13 @@ function createItem(form) {
     if (Object.keys(products).length > 0) {
         // Get the last given ID and increment it by 1
         newProductId = parseInt(Object.keys(products).pop()) + 1;
+        newProductIdS = newProductId.toString()
     }
 
     // Add the new product to the products object
     products[newProductId] = {
-
-        name: title,
+        id: newProductIdS,
+        title: title,
         price: price,
         description: description,
         shipping: shipping,
@@ -33,8 +34,6 @@ function createItem(form) {
     // Store the updated products object back to local storage
     localStorage.setItem('products', JSON.stringify(products));
 
-    // Optionally, provide feedback to the user
-    alert('Item added successfully!');
 }
 
 

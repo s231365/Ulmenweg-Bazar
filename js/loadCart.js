@@ -11,8 +11,8 @@ function loadCart() {
 
     // Fill in all product data of products contained in the cartItemKeys array into cartItems map
     for (let itemKey of cartItemKeys) {
-        if (itemKey in allProducts.products) {
-            cartItems[itemKey] = allProducts.products[itemKey];
+        if (itemKey in allProducts) {
+            cartItems[itemKey] = allProducts[itemKey];
         }
     }
 

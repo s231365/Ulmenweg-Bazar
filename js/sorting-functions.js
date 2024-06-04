@@ -7,7 +7,7 @@ function reloadPageForSorting(sortingString) {
 }
 
 function sortProducts(sorting) {
-    const data = JSON.parse(localStorage.getItem('products')).products;
+    const data = JSON.parse(localStorage.getItem('products'));
 
     let dataArray = Object.values(data);
 
