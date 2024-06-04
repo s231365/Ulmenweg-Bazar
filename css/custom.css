@@ -184,21 +184,23 @@ footer {
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    height: 150px;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+   
 }
-
 
 .overlay-content {
-    position: relative;
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 
 .text-overlay {
     background-color: rgba(0, 0, 0, 0.5);
