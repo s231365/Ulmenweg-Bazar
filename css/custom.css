@@ -208,6 +208,7 @@ footer {
 
 .modal-dialog {
     max-width: 200px;
+    margin: 1.75rem auto;
 }
 
 .modal-title {
