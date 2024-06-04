@@ -82,35 +82,37 @@
 
             <script id="show-products" type="text/x-handlebars-template">
 
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        {{#each value}}
-                            {{#filterProducts this}}
-                                <div class="col my-2">
-                                    <div class="card h-100">
-                                        <a href="product.html?id={{this.id}}"><img class="card-img-top"
-                                                                                   src="{{this.image}}"
-                                                                                   alt="no data found"/></a>
-                                        <div class="card-body p-4 d-flex flex-column">
-                                            <div class="text-center">
-                                                <h5 class="card-title">{{this.title}}</h5>
-                                                <p class="card-text">{{this.price}} €</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer text-center">
-                                            <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                                            <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                    onclick="addToCart({{this.id}})">Add to
-                                                cart
-                                            </button>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {{#each value}}
+                        {{#filterProducts this}}
+                            <div class="col my-2">
+                                <div class="card h-100">
+                                    <a href="product.html?id={{this.id}}"><img class="card-img-top"
+                                                                               src="{{this.image}}"
+                                                                               alt="no data found"/></a>
+                                    <div class="card-body p-4 d-flex flex-column">
+                                        <div class="text-center">
+                                            <h5 class="card-title">{{this.title}}</h5>
+                                            <p class="card-text">{{this.price}} €</p>
                                         </div>
                                     </div>
+                                    <div class="card-footer text-center">
+                                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                                        <button id="addToCartBtn" class="btn btn-primary" type="submit"
+                                                onclick="addToCart({{this.id}})">Add to
+                                            cart
+                                        </button>
+                                    </div>
                                 </div>
-                            {{/filterProducts}}
-                        {{/each}}
-                    </div>
+                            </div>
+                        {{/filterProducts}}
+                    {{/each}}
+                </div>
 
             </script>
-
+            <div class="text-center py-4"><a class="btn btn-primary mt-auto"
+                                             href="filteredProducts.html?type=all">View All Products</a>
+            </div>
         </div>
 
     </main>
