@@ -47,7 +47,7 @@ function toggleSidebar() {
 }
 
 function updateCartItemCount() {
-    // Retrieve the cart items from local storage
+    // Retrieve the cart items from session storage
     let cartItemsString = sessionStorage.getItem('cartItems');
 
     // Parse the JSON string back into a JavaScript object
@@ -57,13 +57,12 @@ function updateCartItemCount() {
     // Check if cartItems exists and get its length
     if (cartItems) {
         itemCount = Object.keys(cartItems).length;
-
-        // Update the item count displayed in the badge
-        document.getElementById('itemCount').textContent = itemCount;
-    } else {
-        // Initialize item count
-        document.getElementById('itemCount').textContent = itemCount;
     }
+
+    // Update the item count displayed in all badges
+    document.querySelectorAll('#itemCount').forEach(itemCountElement => {
+        itemCountElement.textContent = itemCount;
+    });
 }
 
 function handleSearch() {
