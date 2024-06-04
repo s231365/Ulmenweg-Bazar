@@ -46,6 +46,28 @@ function toggleSidebar() {
     toggleButton.classList.toggle('open');
 }
 
+// Function to close the sidebar
+function closeSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var toggleButton = document.getElementById('sidebarCollapse');
+    if (sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+        toggleButton.classList.remove('open');
+    }
+}
+
+// Event listener to close the sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+    var sidebar = document.getElementById('sidebar');
+    var navbar = document.querySelector('.navbar');
+    var isClickInsideSidebar = sidebar.contains(event.target);
+    var isClickInsideNavbar = navbar.contains(event.target);
+
+    if (!isClickInsideSidebar && !isClickInsideNavbar) {
+        closeSidebar();
+    }
+});
+
 function updateCartItemCount() {
     // Retrieve the cart items from session storage
     let cartItemsString = sessionStorage.getItem('cartItems');

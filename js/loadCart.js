@@ -11,7 +11,6 @@ function loadCart() {
 
     // Fill in all product data of products contained in the cartItemKeys array into cartItems map
     for (let itemKey of cartItemKeys) {
-        console.log("Checking itemKey: ", itemKey);
         if (itemKey in allProducts.products) {
             cartItems[itemKey] = allProducts.products[itemKey];
         }
@@ -55,9 +54,33 @@ function loadCart() {
 
 }
 
+function askForDeletion(itemToDelete) {
+    // Show Pop-Up Modal
+    let delModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    let modalHeader = document.querySelector('#deleteModal .modal-header');
+    modalHeader.style.backgroundColor = 'red';
+    modalHeader.style.color = 'white';
 
-// Function to delete an item from the cart
-function deleteItem(indexToDelete) {
+    // Get the buttons
+    let abortButton = document.querySelector('#deleteModal .btn-secondary');
+    let yesButton = document.querySelector('#deleteModal .btn-primary');
+
+    // Add event listeners
+    abortButton.addEventListener('click', function() {
+        delModal.hide();
+    });
+
+    // Yes Button
+    yesButton.addEventListener('click', function() {
+        delModal.hide();
+        deleteItem(itemToDelete);
+    });
+
+    delModal.show();
+}
+
+
+function deleteItem(itemToDelete) {
     // Retrieve the cart items from sessionStorage
     let cartItemsString = sessionStorage.getItem('cartItems');
 
@@ -65,12 +88,11 @@ function deleteItem(indexToDelete) {
     let cartItems = JSON.parse(cartItemsString);
 
     // Filter out the item to delete
-    let updatedCartItems = cartItems.filter((item, index) => index !== parseInt(indexToDelete));
+    let updatedCartItems = cartItems.filter(item => item !== itemToDelete);;
 
     // Update the cartItems in sessionStorage
     sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
 
-    // Reload the cart section to reflect the changes
     loadCart();
     location.reload();
 }
