@@ -6,17 +6,13 @@ function getQueryParameter(name) {
 
 // Function to fetch products from local storage
 function fetchProducts() {
-    let itemsString = localStorage.getItem('products');
-    if (!itemsString) {
+
+    let parsedData = JSON.parse(localStorage.getItem('products'));
+    if (!parsedData ) {
         console.error('No product data found in local storage.');
         return {};
     }
-    let parsedData = JSON.parse(itemsString);
-    if (!parsedData || !parsedData.products) {
-        console.error('No product data found in local storage.');
-        return {};
-    }
-    return parsedData.products; // Access the products directly
+    return parsedData; // Access the products directly
 }
 
 // Function to filter product IDs based on search query
@@ -27,7 +23,7 @@ function filterProductIds(query, products) {
     }
 
     const lowerCaseQuery = query.toLowerCase();
-    const filteredProductIds = Object.keys(products)
+    return Object.keys(products)
         .filter(id => {
             const product = products[id];
             const productTitle = product.title ? product.title.toLowerCase() : '';
@@ -64,8 +60,6 @@ function filterProductIds(query, products) {
                 return title1.localeCompare(title2);
             }
         });
-
-    return filteredProductIds;
 }
 
 // Function to get products by IDs
@@ -77,15 +71,17 @@ function getProductsByIds(ids, products) {
 function displaySearchResults(products) {
     const templateSource = document.getElementById('search-results-template').innerHTML;
     const template = Handlebars.compile(templateSource);
-    const html = template({ products: products });
-    document.getElementById('search-results').innerHTML = html;
+    document.getElementById('search-results').innerHTML = template({products: products});
 }
 
-// Get search query from URL parameters
-const query = getQueryParameter('query');
-if (query) {
-    const products = fetchProducts();
-    const filteredProductIds = filterProductIds(query, products);
-    const filteredProducts =  getProductsByIds(filteredProductIds, products);
-    displaySearchResults(filteredProducts);
+function initSearch(){
+    // Get search query from URL parameters
+    const query = getQueryParameter('query');
+    if (query) {
+        const products = fetchProducts();
+        const filteredProductIds = filterProductIds(query, products);
+        const filteredProducts =  getProductsByIds(filteredProductIds, products);
+        displaySearchResults(filteredProducts);
+    }
+
 }

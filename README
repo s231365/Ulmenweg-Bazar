@@ -1,5 +1,13 @@
-# Ulmenweg Bazaar
+# Ulmenweg Bazar
 
 This is a student project from students studying at the the DHBW Mannheim. It was developed in the Context of the course Web Engineering.
 The task was to create and implement a single User shop, where you can by some things like on Amazon.
-This shop focuses on the Student Home located in Ulmenweg, where about 800 students are living. The purpose of this shop is that you can by stuff from your fellow students. For example, when someone is moving out and leaves some things behind.
+This shop focuses on the Student Home located in Ulmenweg, where about 800 students are living. The purpose of this shop is that you can by stuff from your fellow students.
+For example, when someone is moving out and leaves some things behind. It is like a "Kleinanzeigen" for Students.
+
+Created by:
+  - Laura Van Uffelt
+  - Celina Riegel
+  - Paul Seidel
+
+run home.html to start

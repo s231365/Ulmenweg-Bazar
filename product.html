@@ -3,17 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap core CSS -->
+
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/AddToCart.js"></script>
     <script src="js/render-functions.js"></script>
     <script src="js/get-specific-product.js"></script>
     <script src="js/include-navbar-and-footer.js"></script>
+
     <title>Product View</title>
 </head>
+
 <body onload="render_productsite();">
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
@@ -52,7 +55,7 @@
                             </div>
                             <div class="card-body">
                                 <button id="addToCartBtn" class="btn btn-primary w-100"
-                                        onclick="addToCart({{this.id}})">Add to Cart
+                                        onclick="addToCart({{this.id}}, true)">Add to Cart
                                 </button>
                             </div>
                         </div>
