@@ -6,17 +6,13 @@ function getQueryParameter(name) {
 
 // Function to fetch products from local storage
 function fetchProducts() {
-    let itemsString = localStorage.getItem('products');
-    if (!itemsString) {
+
+    let parsedData = JSON.parse(localStorage.getItem('products'));
+    if (!parsedData ) {
         console.error('No product data found in local storage.');
         return {};
     }
-    let parsedData = JSON.parse(itemsString);
-    if (!parsedData || !parsedData.products) {
-        console.error('No product data found in local storage.');
-        return {};
-    }
-    return parsedData.products; // Access the products directly
+    return parsedData; // Access the products directly
 }
 
 // Function to filter product IDs based on search query
@@ -78,11 +74,14 @@ function displaySearchResults(products) {
     document.getElementById('search-results').innerHTML = template({products: products});
 }
 
-// Get search query from URL parameters
-const query = getQueryParameter('query');
-if (query) {
-    const products = fetchProducts();
-    const filteredProductIds = filterProductIds(query, products);
-    const filteredProducts =  getProductsByIds(filteredProductIds, products);
-    displaySearchResults(filteredProducts);
+function initSearch(){
+    // Get search query from URL parameters
+    const query = getQueryParameter('query');
+    if (query) {
+        const products = fetchProducts();
+        const filteredProductIds = filterProductIds(query, products);
+        const filteredProducts =  getProductsByIds(filteredProductIds, products);
+        displaySearchResults(filteredProducts);
+    }
+
 }
