@@ -11,10 +11,10 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/include-navbar-and-footer.js"></script>
     <script src="js/render-functions.js"></script>
-
+    <script src="js/pagination.js"></script>
     <title>Products</title>
 </head>
-<body onload="render_filteredProducts();">
+<body>
 
 <!--load Navbar-->
 <div id="navbar-placeholder"></div>
@@ -31,30 +31,23 @@
 
 <div class="wrapper">
     <main class="main-content flex-grow-1">
-
         <div class="container">
-
-
             <h2>Product List</h2>
-
 
             <div class="row py-2 ml-1 align-content-end">
                 <div class="form-group">
                     <label for="sorting">Sort Products</label>
                     <select id="sorting" class="form-select" onchange="reloadPageForSorting(this.value)">
-                        {{#sorting}}
                         <option value="standard">Standard</option>
                         <option value="name-a-z">A-Z</option>
                         <option value="name-z-a">Z-A</option>
                         <option value="low-high">Price Low-High</option>
                         <option value="high-low">Price High-Low</option>
-                        {{/sorting}}
                     </select>
                 </div>
             </div>
 
-
-            <!--load products-->
+            <!-- load products -->
             <ul id="product-list"></ul>
 
             <!-- Pagination controls -->
@@ -73,131 +66,36 @@
                 </ul>
             </nav>
         </div>
-
     </main>
     <!-- Footer-->
     <div id="footer-placeholder"></div>
 </div>
 
-            <script id="show-products" type="text/x-handlebars-template">
-
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        {{#each value}}
-                            {{#filterProducts this}}
-                                <div class="col my-2">
-                                    <div class="card h-100">
-                                        <a href="product.html?id={{this.id}}"><img class="card-img-top"
-                                                                                   src="{{this.image}}"
-                                                                                   alt="no data found"/></a>
-                                        <div class="card-body p-4 d-flex flex-column">
-                                            <div class="text-center">
-                                                <h5 class="card-title">{{this.title}}</h5>
-                                                <p class="card-text">{{this.price}} €</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer text-center">
-                                            <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                                            <button id="addToCartBtn" class="btn btn-primary" type="submit"
-                                                    onclick="addToCart({{this.id}})">Add to
-                                                cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            {{/filterProducts}}
-                        {{/each}}
+<!-- Templates -->
+<script id="show-products" type="text/x-handlebars-template">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        {{#each value}}
+            {{#filterProducts this}}
+                <div class="col my-2">
+                    <div class="card h-100">
+                        <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}" alt="no data found"/></a>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="text-center">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <p class="card-text">{{this.price}} €</p>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                            <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}})">Add to cart</button>
+                        </div>
                     </div>
-
-            </script>
-
-<script>
-    //enable sorting and filtering
-    const urlParams = new URLSearchParams(window.location.search);
-    const sorting = urlParams.get('sorting')
-    const type_filter = urlParams.get('type');
-    const currentPage = parseInt(urlParams.get('page')) || 1;
-    const itemsPerPage = 10; // Set number of items per page
-
-    if (sorting != null) {
-        document.getElementById('sorting').value = sorting;
-    }
-
-    Handlebars.registerHelper('filterProducts', function (product, options) {
-        if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
-            return options.fn(this);
-        } else {
-            return options.inverse(this);
-        }
-    });
-
-    let dataArray = sortProducts(sorting);
-
-    function render_filteredProducts(page = 1, itemsPerPage = 10) {
-        const filteredData = dataArray.filter(product => {
-            return (product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all";
-        });
-
-        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const paginatedData = filteredData.slice(startIndex, endIndex);
-
-        const templateSource = document.getElementById("show-products").innerHTML;
-        const template = Handlebars.compile(templateSource);
-        const html = template({ value: paginatedData });
-        document.getElementById("product-list").innerHTML = html;
-
-        updatePaginationControls(page, totalPages);
-    }
-
-    function updatePaginationControls(currentPage, totalPages) {
-        const pagination = document.querySelector(".pagination");
-        pagination.innerHTML = `
-            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                <a class="page-link" href="#" aria-label="Previous" onclick="changePage('prev')">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-        `;
-
-        for (let i = 1; i <= totalPages; i++) {
-            pagination.innerHTML += `
-                <li class="page-item ${i === currentPage ? 'active' : ''}">
-                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                </li>
-            `;
-        }
-
-        pagination.innerHTML += `
-            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                <a class="page-link" href="#" aria-label="Next" onclick="changePage('next')">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        `;
-    }
-
-    function changePage(action) {
-        let currentPage = parseInt(urlParams.get('page')) || 1;
-
-        if (action === 'prev') {
-            currentPage--;
-        } else if (action === 'next') {
-            currentPage++;
-        } else {
-            currentPage = action;
-        }
-
-        urlParams.set('page', currentPage);
-        window.history.pushState({}, '', `${window.location.pathname}?${urlParams}`);
-        render_filteredProducts(currentPage);
-    }
-
-    // Initial render
-    document.addEventListener('DOMContentLoaded', () => {
-        render_filteredProducts(currentPage, itemsPerPage);
-    });
+                </div>
+            {{/filterProducts}}
+        {{/each}}
+    </div>
 </script>
+
 
 </body>
 </html>

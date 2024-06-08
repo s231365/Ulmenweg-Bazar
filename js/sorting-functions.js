@@ -31,3 +31,23 @@ function sortProducts(sorting) {
     }
     return dataArray;
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const sorting = urlParams.get('sorting');
+const type_filter = urlParams.get('type');
+
+if (sorting != null) {
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('sorting').value = sorting;
+    });
+}
+
+Handlebars.registerHelper('filterProducts', function (product, options) {
+    if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
+
+let dataArray = sortProducts(sorting);

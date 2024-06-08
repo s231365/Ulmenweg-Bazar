@@ -1,4 +1,8 @@
-function render_filteredProducts(page = 1, itemsPerPage = 10) {
+const currentPage = parseInt(urlParams.get('page')) || 1;
+const itemsPerPage = 20;
+
+
+function render_filteredProducts(page = 1, itemsPerPage = 20) {
     const filteredData = dataArray.filter(product => {
         return (product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all";
     });
@@ -44,7 +48,6 @@ function updatePaginationControls(currentPage, totalPages) {
 }
 
 function changePage(action) {
-    const urlParams = new URLSearchParams(window.location.search);
     let currentPage = parseInt(urlParams.get('page')) || 1;
 
     if (action === 'prev') {
@@ -62,7 +65,5 @@ function changePage(action) {
 
 // Initial render
 document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = parseInt(urlParams.get('page')) || 1;
-    const itemsPerPage = 10;
     render_filteredProducts(currentPage, itemsPerPage);
 });
