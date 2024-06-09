@@ -29,7 +29,7 @@
 
                 <!-- Search results -->
                 <ul id="search-results"
-                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></ul>
+                    ></ul>
 
                 <!-- Pagination controls -->
                 <nav aria-label="Page navigation">
@@ -54,36 +54,40 @@
 </div>
 
 <script id="search-results-template" type="text/x-handlebars-template">
-    {{#each products}}
-        <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}"
-                                                        alt="no data found"/></a>
-                <!-- Product details-->
-                <div class="card-body p-4 d-flex flex-column">
-                    <div class="text-center">
-                        <!-- Product title-->
-                        <h5 class="card-title">{{this.title}}</h5>
-                        <!-- Product price-->
-                        <p class="card-text">{{this.price}}</p>
-                        <!--add buttons-->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        {{#each products}}
+            <div class="col my-2">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <a href="product.html?id={{this.id}}"><img class="card-img-top" src="{{this.image}}"
+                                                               alt="no data found"/></a>
+                    <!-- Product details-->
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="text-center">
+                            <!-- Product title-->
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!-- Product price-->
+                            <p class="card-text">{{this.price}}</p>
+                            <!--add buttons-->
 
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <!--button opens product.html with the id-->
+                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                        <!--button executes addToCart()-->
+                        <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}})">Add to
+                            cart
+                        </button>
                     </div>
                 </div>
-                <div class="card-footer text-center">
-                    <!--button opens product.html with the id-->
-                    <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                    <!--button executes addToCart()-->
-                    <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}})">Add to
-                        cart
-                    </button>
-                </div>
             </div>
-        </div>
-    {{else}}
-        <p>No results found.</p>
-    {{/each}}
+        {{else}}
+            <p>No results found.</p>
+        {{/each}}
+
+    </div>
+
 </script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
