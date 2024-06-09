@@ -35,7 +35,7 @@
     <main class="main-content flex-grow-1">
         <section class="py-5">
             <div class="container">
-                <h2>Product List</h2>
+                <h2 id="filteredProductsTitle">All Products</h2>
 
                 <div class="row py-2 ml-1 align-content-end">
                     <div class="form-group">
@@ -108,10 +108,14 @@
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const type_filter = urlParams.get('type');
+    const typeFilter = urlParams.get('type');
     const sorting = urlParams.get('sorting');
     const currentPage = parseInt(urlParams.get('page')) || 1;
 
+    const titleObject = document.getElementById('filteredProductsTitle');
+    if (typeFilter !== "all") {
+        titleObject.innerText = `${typeFilter.charAt(0).toUpperCase() + typeFilter.slice(1)}`;
+    }
 
     if (sorting != null) {
         document.addEventListener('DOMContentLoaded', () => {
@@ -122,7 +126,7 @@
     let dataArray = sortProducts(sorting);
 
     Handlebars.registerHelper('filterProducts', function (product, options) {
-        if ((product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all") {
+        if ((product.tags && product.tags.indexOf(typeFilter) !== -1) || typeFilter === "all") {
             return options.fn(this);
         } else {
             return options.inverse(this);
