@@ -539,17 +539,5 @@
       "giveaway"
     ],
     "image": "img/products/freeFitnessBand.jpg"
-  },
-  "46": {
-    "id": "46",
-    "title": "mysterious bag of Flour",
-    "price": "100.00",
-    "description": "Some good Flour.",
-    "shipping": false,
-    "condition": "used",
-    "tags": [
-      "other"
-    ],
-    "image": "img/products/bagOfFlour.jpg"
   }
 }
