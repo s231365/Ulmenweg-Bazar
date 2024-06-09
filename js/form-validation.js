@@ -1,4 +1,8 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+/**
+ * Validates a form and handles the submission process.
+ * @param {HTMLFormElement} form - The form element to validate.
+ * @param {Event} event - The event object associated with the form submission.
+ */
 function validation(form, event) {
     form.classList.add('was-validated');
     if (!form.checkValidity()) {
@@ -11,6 +15,9 @@ function validation(form, event) {
     }
 }
 
+/**
+ * Copies the cart items from sessionStorage to localStorage as a purchase record.
+ */
 function copy() {
     // Retrieve the existing purchases from localStorage, or initialize as an empty object (map)
     let allpurchases = JSON.parse(localStorage.getItem('allpurchases')) || {};
@@ -26,7 +33,7 @@ function copy() {
 
         let cartItems = {};
 
-        /// Fill in title, price, and image URL of products contained in the cartItemKeys array into cartItems map
+        // Fill in title, price, and image URL of products contained in the cartItemKeys array into cartItems map
         cartItemKeys.forEach(itemKey => {
             if (allProducts[itemKey]) {
                 let product = allProducts[itemKey];
@@ -61,6 +68,9 @@ function copy() {
     }
 }
 
+/**
+ * Displays all purchases stored in localStorage in a specified container.
+ */
 function displayAllPurchases() {
     // Retrieve all purchases from localStorage
     let allPurchases = JSON.parse(localStorage.getItem('allpurchases')) || {};
@@ -86,7 +96,7 @@ function displayAllPurchases() {
     }));
 
     purchasesArray.reverse();
+
     // Render the template with the purchases data
     container.innerHTML = template({ allpurchases: purchasesArray });
 }
-

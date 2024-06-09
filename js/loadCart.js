@@ -1,4 +1,9 @@
-// Function to load cart items
+/**
+ * Loads cart items from sessionStorage and displays them on the cart page.
+ * Retrieves the cart items from sessionStorage and products from localStorage,
+ * and then compiles and renders the Handlebars template with the cart items data.
+ * Also calculates the total price and updates the total price element in the HTML.
+ */
 function loadCart() {
     // Retrieve the cart items from sessionStorage and products from localStorage
     let cartItemKeysString = sessionStorage.getItem('cartItems') || [];
@@ -16,7 +21,6 @@ function loadCart() {
         }
     }
 
-
     // Get the Handlebars template script
     let templateSource = document.getElementById('product-template').innerHTML;
 
@@ -24,13 +28,10 @@ function loadCart() {
     let template = Handlebars.compile(templateSource);
 
     // Render the template with the cartItems data and insert it into the HTML
-    document.getElementById('cart-items').innerHTML += template({cartItems: cartItems});
-
+    document.getElementById('cart-items').innerHTML += template({ cartItems: cartItems });
 
     // Calculate total price and display it
     let totalPrice = 0;
-
-
     for (let key in cartItems) {
         totalPrice += parseFloat(cartItems[key].price);
     }
@@ -43,7 +44,6 @@ function loadCart() {
         totalPriceElement.innerText = totalPrice.toFixed(2);
         checkoutButton.style.display = 'block';
         emptyCartMessage.style.display = 'none';
-        //styleCart(cartItemKeys, totalPrice);
     } else if (window.location.pathname.endsWith('checkout.html')) {
         totalPriceElement.innerText = totalPrice.toFixed(2);
     } else {
@@ -51,9 +51,12 @@ function loadCart() {
         checkoutButton.style.display = 'none';
         emptyCartMessage.style.display = 'block';
     }
-
 }
 
+/**
+ * Displays a confirmation modal to ask the user if they want to delete an item from the cart.
+ * @param {string} itemToDelete - The key of the item to delete from the cart.
+ */
 function askForDeletion(itemToDelete) {
     // Show Pop-Up Modal
     let delModal = new bootstrap.Modal(document.getElementById('deleteModal'));
@@ -79,7 +82,10 @@ function askForDeletion(itemToDelete) {
     delModal.show();
 }
 
-
+/**
+ * Deletes an item from the cart.
+ * @param {string} itemToDelete - The key of the item to delete from the cart.
+ */
 function deleteItem(itemToDelete) {
     // Retrieve the cart items from sessionStorage
     let cartItemsString = sessionStorage.getItem('cartItems');

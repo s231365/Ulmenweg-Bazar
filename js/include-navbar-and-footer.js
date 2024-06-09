@@ -1,3 +1,8 @@
+/**
+ * Loads the navbar and footer content into the placeholders in the current document.
+ * Attaches event listeners to search button and sidebar toggle button after loading the navbar.
+ * Updates the cart item count displayed in the navbar.
+ */
 function loadNavbarAndFooter() {
     // Load navbar
     const navbarXhr = new XMLHttpRequest();
@@ -36,7 +41,10 @@ function loadNavbarAndFooter() {
     footerXhr.send();
 }
 
-// Function to toggle the sidebar
+/**
+ * Toggles the visibility of the sidebar.
+ * Toggles the hamburger icon to an X icon when the sidebar is shown.
+ */
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('show');
@@ -46,7 +54,10 @@ function toggleSidebar() {
     toggleButton.classList.toggle('open');
 }
 
-// Function to close the sidebar
+/**
+ * Closes the sidebar if it is currently open.
+ * Removes the 'show' class from the sidebar and 'open' class from the toggle button.
+ */
 function closeSidebar() {
     const sidebar = document.getElementById('sidebar');
     const toggleButton = document.getElementById('sidebarCollapse');
@@ -56,7 +67,10 @@ function closeSidebar() {
     }
 }
 
-// Event listener to close the sidebar when clicking outside of it
+/**
+ * Event listener to close the sidebar when clicking outside of it.
+ * @param {Event} event - The event object representing the click event.
+ */
 document.addEventListener('click', function(event) {
     const sidebar = document.getElementById('sidebar');
     const navbar = document.querySelector('.navbar');
@@ -68,6 +82,10 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/**
+ * Updates the cart item count displayed in the navbar.
+ * Retrieves the cart items from session storage and updates the item count in all badges.
+ */
 function updateCartItemCount() {
     // Retrieve the cart items from session storage
     let cartItemsString = sessionStorage.getItem('cartItems');
@@ -87,6 +105,10 @@ function updateCartItemCount() {
     });
 }
 
+/**
+ * Handles the search functionality.
+ * Redirects the user to the search results page with the search query as a URL parameter.
+ */
 function handleSearch() {
     const searchInput = document.getElementById('searchInput');
     const query = searchInput.value.trim();

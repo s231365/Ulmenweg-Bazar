@@ -1,21 +1,35 @@
-// Function to get query parameter value by name
+/**
+ * Retrieves the value of a specified query parameter from the URL.
+ *
+ * @param {string} name - The name of the query parameter to retrieve.
+ * @returns {string|null} The value of the query parameter, or null if not found.
+ */
 function getQueryParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-// Function to fetch products from local storage
+/**
+ * Fetches the products stored in local storage.
+ *
+ * @returns {Object} The products stored in local storage, or an empty object if no data is found.
+ */
 function fetchProducts() {
-
     let parsedData = JSON.parse(localStorage.getItem('products'));
-    if (!parsedData ) {
+    if (!parsedData) {
         console.error('No product data found in local storage.');
         return {};
     }
-    return parsedData; // Access the products directly
+    return parsedData;
 }
 
-// Function to filter product IDs based on search query
+/**
+ * Filters product IDs based on a search query.
+ *
+ * @param {string} query - The search query to filter products by.
+ * @param {Object} products - The products to filter.
+ * @returns {string[]} An array of filtered product IDs.
+ */
 function filterProductIds(query, products) {
     if (!products || Object.keys(products).length === 0) {
         console.error('No products found.');
@@ -62,19 +76,35 @@ function filterProductIds(query, products) {
         });
 }
 
-// Function to get products by IDs
+/**
+ * Retrieves products by their IDs.
+ *
+ * @param {string[]} ids - The IDs of the products to retrieve.
+ * @param {Object} products - The products to retrieve from.
+ * @returns {Object[]} An array of products corresponding to the provided IDs.
+ */
 function getProductsByIds(ids, products) {
     return ids.map(id => products[id]);
 }
 
-// Function to display search results using Handlebars
+/**
+ * Displays the search results using a Handlebars template.
+ *
+ * @param {Object[]} products - The products to display.
+ */
 function displaySearchResults(products) {
     const templateSource = document.getElementById('search-results-template').innerHTML;
     const template = Handlebars.compile(templateSource);
-    document.getElementById('search-results').innerHTML = template({products: products});
+    document.getElementById('search-results').innerHTML = template({ products: products });
 }
 
-function initPage(page = 1, itemsPerPage = 20){
+/**
+ * Initializes the page, applying pagination and displaying search results.
+ *
+ * @param {number} [page=1] - The current page number.
+ * @param {number} [itemsPerPage=20] - The number of items to display per page.
+ */
+function initPage(page = 1, itemsPerPage = 20) {
     // Get search query from URL parameters
     const query = getQueryParameter('query');
     if (query) {
@@ -88,5 +118,4 @@ function initPage(page = 1, itemsPerPage = 20){
         displaySearchResults(paginatedProducts);
         updatePaginationControls(page, totalPages);
     }
-
 }
