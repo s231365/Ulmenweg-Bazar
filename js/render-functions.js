@@ -4,12 +4,23 @@ function render_productsite() {
     document.getElementById('product-list').innerHTML = template(filtered_data);
 }
 
-function render_filteredProducts() {
-    const source = document.getElementById('show-products').innerHTML;
-    const template = Handlebars.compile(source);
-    document.getElementById('product-list').innerHTML = template({value: dataArray});
-}
+function initPage(page = 1, itemsPerPage = 20) {
+    const filteredData = dataArray.filter(product => {
+        return (product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all";
+    });
 
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedData = filteredData.slice(startIndex, endIndex);
+
+    const templateSource = document.getElementById("show-products").innerHTML;
+    const template = Handlebars.compile(templateSource);
+    const html = template({ value: paginatedData });
+    document.getElementById("product-list").innerHTML = html;
+
+    updatePaginationControls(page, totalPages);
+}
 function render_allProducts() {
     let itemsString = localStorage.getItem('products');
     let products = JSON.parse(itemsString);

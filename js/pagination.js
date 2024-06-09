@@ -1,30 +1,11 @@
+const urlParams = new URLSearchParams(window.location.search);
 const currentPage = parseInt(urlParams.get('page')) || 1;
-const itemsPerPage = 20;
-
-
-function render_filteredProducts(page = 1, itemsPerPage = 20) {
-    const filteredData = dataArray.filter(product => {
-        return (product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all";
-    });
-
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedData = filteredData.slice(startIndex, endIndex);
-
-    const templateSource = document.getElementById("show-products").innerHTML;
-    const template = Handlebars.compile(templateSource);
-    const html = template({ value: paginatedData });
-    document.getElementById("product-list").innerHTML = html;
-
-    updatePaginationControls(page, totalPages);
-}
 
 function updatePaginationControls(currentPage, totalPages) {
     const pagination = document.querySelector(".pagination");
     pagination.innerHTML = `
         <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-            <a class="page-link" href="#" aria-label="Previous" onclick="changePage('prev')">
+            <a class="page-link" href="#" aria-label="Previous" onclick="changePage('prev',currentPage)">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
@@ -33,22 +14,21 @@ function updatePaginationControls(currentPage, totalPages) {
     for (let i = 1; i <= totalPages; i++) {
         pagination.innerHTML += `
             <li class="page-item ${i === currentPage ? 'active' : ''}">
-                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                <a class="page-link" href="#" onclick="changePage(${i},currentPage)">${i}</a>
             </li>
         `;
     }
 
     pagination.innerHTML += `
         <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-            <a class="page-link" href="#" aria-label="Next" onclick="changePage('next')">
+            <a class="page-link" href="#" aria-label="Next" onclick="changePage('next',currentPage)">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
     `;
 }
 
-function changePage(action) {
-    let currentPage = parseInt(urlParams.get('page')) || 1;
+function changePage(action, currentPage) {
 
     if (action === 'prev') {
         currentPage--;
@@ -60,10 +40,10 @@ function changePage(action) {
 
     urlParams.set('page', currentPage);
     window.history.pushState({}, '', `${window.location.pathname}?${urlParams}`);
-    render_filteredProducts(currentPage);
+    initPage(currentPage);
 }
 
 // Initial render
 document.addEventListener('DOMContentLoaded', () => {
-    render_filteredProducts(currentPage, itemsPerPage);
+    initPage(currentPage);
 });

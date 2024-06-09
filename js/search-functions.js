@@ -74,14 +74,19 @@ function displaySearchResults(products) {
     document.getElementById('search-results').innerHTML = template({products: products});
 }
 
-function initSearch(){
+function initPage(page = 1, itemsPerPage = 20){
     // Get search query from URL parameters
     const query = getQueryParameter('query');
     if (query) {
         const products = fetchProducts();
         const filteredProductIds = filterProductIds(query, products);
-        const filteredProducts =  getProductsByIds(filteredProductIds, products);
-        displaySearchResults(filteredProducts);
+        const totalPages = Math.ceil(filteredProductIds.length / itemsPerPage);
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedProductIds = filteredProductIds.slice(startIndex, endIndex);
+        const paginatedProducts = getProductsByIds(paginatedProductIds, products);
+        displaySearchResults(paginatedProducts);
+        updatePaginationControls(page, totalPages);
     }
 
 }

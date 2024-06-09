@@ -11,10 +11,11 @@
     <script src="js/AddToCart.js"></script>
     <script src="js/include-navbar-and-footer.js"></script>
     <script src="js/search-functions.js"></script>
+    <script src="js/pagination.js"></script>
 
     <title>Search Results</title>
 </head>
-<body onload="initSearch()">
+<body onload="initPage()">
 <!-- Navbar -->
 <div id="navbar-placeholder"></div>
 
@@ -29,6 +30,22 @@
                 <!-- Search results -->
                 <ul id="search-results"
                     class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></ul>
+
+                <!-- Pagination controls -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" onclick="changePage('prev',currentPage)">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" onclick="changePage('next',currentPage)">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </section>
     </main>
