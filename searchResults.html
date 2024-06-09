@@ -85,7 +85,15 @@
         <p>No results found.</p>
     {{/each}}
 </script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = parseInt(urlParams.get('page')) || 1;
 
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+        initPage(currentPage);
+    });
+</script>
 </body>
 </html>
 

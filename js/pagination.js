@@ -1,6 +1,3 @@
-const urlParams = new URLSearchParams(window.location.search);
-const currentPage = parseInt(urlParams.get('page')) || 1;
-
 function updatePaginationControls(currentPage, totalPages) {
     const pagination = document.querySelector(".pagination");
     pagination.innerHTML = `
@@ -42,8 +39,3 @@ function changePage(action, currentPage) {
     window.history.pushState({}, '', `${window.location.pathname}?${urlParams}`);
     initPage(currentPage);
 }
-
-// Initial render
-document.addEventListener('DOMContentLoaded', () => {
-    initPage(currentPage);
-});
