@@ -6,7 +6,7 @@ function render_productsite() {
 
 function initPage(page = 1, itemsPerPage = 20) {
     const filteredData = dataArray.filter(product => {
-        return (product.tags && product.tags.indexOf(type_filter) !== -1) || type_filter === "all";
+        return (product.tags && product.tags.indexOf(typeFilter) !== -1) || typeFilter === "all";
     });
 
     const totalPages = Math.ceil(filteredData.length / itemsPerPage);
