@@ -10,7 +10,7 @@ function loadDataFromJSON() {
         .then(response => response.json())
         .then(data => {
             const jsonDataString = JSON.stringify(data);
-            const emptySessionStorage = JSON.stringify("")
+            const emptySessionStorage = JSON.stringify("");
 
             if (localStorage.getItem('products') === null) {
                 localStorage.setItem('products', jsonDataString);
