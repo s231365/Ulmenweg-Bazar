@@ -10,9 +10,14 @@ function loadDataFromJSON() {
         .then(response => response.json())
         .then(data => {
             const jsonDataString = JSON.stringify(data);
+            const emptySessionStorage = JSON.stringify("")
 
             if (localStorage.getItem('products') === null) {
                 localStorage.setItem('products', jsonDataString);
+            }
+
+            if (sessionStorage.getItem("cartItems") === null) {
+                sessionStorage.setItem("cartItems", emptySessionStorage);
             }
         })
         .catch(error => console.error('Fehler beim Laden der JSON-Datei:', error));
