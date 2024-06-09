@@ -11,7 +11,7 @@ function validation(form, event) {
     } else {
         event.preventDefault();
         copy();
-        window.location.href = 'danke.html';
+        window.location.href = 'thankYou.html';
     }
 }
 
