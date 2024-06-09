@@ -65,7 +65,7 @@
 </div>
 
 <script id="search-results-template" type="text/x-handlebars-template">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         {{#each products}}
             <div class="col my-2">
                 <div class="card h-100">
@@ -76,7 +76,7 @@
                     <div class="card-body p-4 d-flex flex-column">
                         <div class="text-center">
                             <!-- Product title-->
-                            <h5 class="card-title">{{this.title}}</h5>
+                            <a href="product.html?id={{this.id}}"><h5 class="card-title">{{this.title}}</h5></a>
                             <!-- Product price-->
                             <p class="card-text">{{this.price}}</p>
                             <!--add buttons-->
@@ -85,7 +85,7 @@
                     </div>
                     <div class="card-footer text-center">
                         <!--button opens product.html with the id-->
-                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                        <a class="btn btn-primary mb-2" href="product.html?id={{this.id}}">View</a>
                         <!--button executes addToCart()-->
                         <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}}, false)">Add to
                             cart
