@@ -1,3 +1,8 @@
+/**
+ * Reloads the current page with the specified sorting parameter.
+ *
+ * @param {string} sortingString - The sorting criteria to be applied, e.g., "name-a-z", "high-low".
+ */
 function reloadPageForSorting(sortingString) {
     let url = new URL(window.location.href);
     let params = new URLSearchParams(url.search);
@@ -6,6 +11,12 @@ function reloadPageForSorting(sortingString) {
     window.location.href = url.toString();
 }
 
+/**
+ * Sorts products based on the specified sorting criteria.
+ *
+ * @param {string} sorting - The sorting criteria to be applied. Possible values: "standard" (default), "name-a-z", "name-z-a", "low-high", "high-low".
+ * @returns {Array} The sorted array of products.
+ */
 function sortProducts(sorting) {
     const data = JSON.parse(localStorage.getItem('products'));
 
@@ -15,19 +26,19 @@ function sortProducts(sorting) {
         case "standard":
         default:
             dataArray.sort((a, b) => a.id.localeCompare(b.id));
-            break
+            break;
         case "name-a-z":
             dataArray.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
-            break
+            break;
         case "name-z-a":
             dataArray.sort((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()));
-            break
+            break;
         case "low-high":
             dataArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-            break
+            break;
         case "high-low":
             dataArray.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-            break
+            break;
     }
     return dataArray;
 }

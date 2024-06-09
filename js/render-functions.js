@@ -1,9 +1,18 @@
-function render_productsite() {
+/**
+ * Renders the product site using a Handlebars template.
+ */
+function renderProductsite() {
     const source = document.getElementById('product-template').innerHTML;
     const template = Handlebars.compile(source);
-    document.getElementById('product-list').innerHTML = template(filtered_data);
+    document.getElementById('product-list').innerHTML = template(filteredData);
 }
 
+/**
+ * Initializes the page with products, applying pagination and filtering by type.
+ *
+ * @param {number} [page=1] - The current page number.
+ * @param {number} [itemsPerPage=20] - The number of items to display per page.
+ */
 function initPage(page = 1, itemsPerPage = 20) {
     const filteredData = dataArray.filter(product => {
         return (product.tags && product.tags.indexOf(typeFilter) !== -1) || typeFilter === "all";
@@ -16,12 +25,15 @@ function initPage(page = 1, itemsPerPage = 20) {
 
     const templateSource = document.getElementById("show-products").innerHTML;
     const template = Handlebars.compile(templateSource);
-    const html = template({ value: paginatedData });
-    document.getElementById("product-list").innerHTML = html;
+    document.getElementById("product-list").innerHTML = template({value: paginatedData});
 
     updatePaginationControls(page, totalPages);
 }
-function render_allProducts() {
+
+/**
+ * Renders all products from local storage using a Handlebars template.
+ */
+function renderAllProducts() {
     let itemsString = localStorage.getItem('products');
     let products = JSON.parse(itemsString);
     let templateSource = document.getElementById('products').innerHTML;

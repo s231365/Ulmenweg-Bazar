@@ -1,3 +1,7 @@
+/**
+ * Creates a new product item from form inputs and stores it in local storage.
+ * @param {HTMLFormElement} form - The form element containing the product details.
+ */
 function createItem(form) {
     // Retrieve the existing products from local storage or initialize an empty object
     let products = JSON.parse(localStorage.getItem('products')) || {};
@@ -17,7 +21,7 @@ function createItem(form) {
     if (Object.keys(products).length > 0) {
         // Get the last given ID and increment it by 1
         newProductId = parseInt(Object.keys(products).pop()) + 1;
-        newProductIdS = newProductId.toString()
+        newProductIdS = newProductId.toString();
     }
 
     // Add the new product to the products object
@@ -34,11 +38,14 @@ function createItem(form) {
 
     // Store the updated products object back to local storage
     localStorage.setItem('products', JSON.stringify(products));
-
 }
 
-
-function validate(form, event) {
+/**
+ * Validates a form and creates a new product item if the form is valid.
+ * @param {HTMLFormElement} form - The form element to validate.
+ * @param {Event} event - The event object associated with the form submission.
+ */
+function validateInput(form, event) {
     form.classList.add('was-validated');
     if (!form.checkValidity()) {
         event.preventDefault();
@@ -48,6 +55,10 @@ function validate(form, event) {
     }
 }
 
+/**
+ * Deletes a product item from local storage based on its ID.
+ * @param {string} itemId - The ID of the product item to delete.
+ */
 function deleteItem(itemId) {
     let productsString = localStorage.getItem('products');
 
@@ -68,5 +79,4 @@ function deleteItem(itemId) {
 
     // Reload the cart section to reflect the changes
     location.reload();
-
 }
