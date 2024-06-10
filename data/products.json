@@ -4,7 +4,7 @@
     "title": "Kitchen Knife",
     "price": "15.00",
     "description": "Barely used Kitchen Knife of a branch we all know",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "new",
     "tags": [
       "kitchen"
@@ -16,7 +16,7 @@
     "title": "Clothing Rack",
     "price": "15.00",
     "description": "Nice clothing rack in a good condition",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -28,7 +28,7 @@
     "title": "Apple Pencil",
     "price": "45.00",
     "description": "Selling my old Apple Pencil. I worked two years with it and never had any issues.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "electronics"
@@ -40,7 +40,7 @@
     "title": "Cheese Grater",
     "price": "30.00",
     "description": "Selling a cheese Grater. Works fine, just some scratches",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "electronics",
@@ -53,7 +53,7 @@
     "title": "Imagine Dragons Tickets",
     "price": "120.00",
     "description": "Selling two Tickets for Imagine Dragons this summer. Cant go there because my dog ate all my money",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -65,7 +65,7 @@
     "title": "Torsten Sträter Tickets",
     "price": "80.00",
     "description": "Selling two Tickets for German Comedian Torsten Sträter.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -77,7 +77,7 @@
     "title": "Outdoor Tent",
     "price": "100.00",
     "description": "Brand new outdoor tent, perfect for camping trips",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "outdoor"
@@ -89,7 +89,7 @@
     "title": "Wooden Chair",
     "price": "25.00",
     "description": "Used wooden chair in good condition",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -101,7 +101,7 @@
     "title": "JBL Bluetooth Speaker",
     "price": "30.00",
     "description": "Used Bluetooth speaker JBL Charge 4, works perfectly",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "electronics"
@@ -113,7 +113,7 @@
     "title": "Kitchen Utensil Set",
     "price": "15.00",
     "description": "New kitchen utensil set from Amazon, never used",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "kitchen"
@@ -125,7 +125,7 @@
     "title": "Die Toten Hosen Concert Tickets",
     "price": "50.00",
     "description": "Two Die Toten Hosen concert tickets for sale, great seats",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -137,7 +137,7 @@
     "title": "Camping Stove",
     "price": "35.00",
     "description": "Used camping stove, perfect for outdoor cooking. Doesnt include gas",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -149,7 +149,7 @@
     "title": "Free Programmer T-shirt",
     "price": "0.00",
     "description": "Giving away my programmer t-shirt, good condition. Warning: doesnt help while caffeine-withdrawal",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "giveaway"
@@ -161,7 +161,7 @@
     "title": "Free Programming Book for Linux and SQL",
     "price": "0.00",
     "description": "Giving away my programming for beginners book. It really helped me in university",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "giveaway"
@@ -173,7 +173,7 @@
     "title": "Miscellaneous Items",
     "price": "10.00",
     "description": "Selling a box of miscellaneous items I found in my room",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "other"
@@ -185,7 +185,7 @@
     "title": "Outdoor Grill",
     "price": "75.00",
     "description": "Used outdoor grill, perfect for BBQ parties",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -197,7 +197,7 @@
     "title": "Leather Sofa",
     "price": "200.00",
     "description": "Used leather sofa in good condition",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -209,7 +209,7 @@
     "title": "Samsung TV",
     "price": "300.00",
     "description": "Used Samsung TV, works perfectly",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "electronics"
@@ -221,7 +221,7 @@
     "title": "Kitchen Mixer",
     "price": "50.00",
     "description": "New kitchen mixer, never used",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "kitchen"
@@ -233,7 +233,7 @@
     "title": "Lion King Theater Tickets",
     "price": "80.00",
     "description": "Two theater tickets for Lion King for sale, great seats",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -245,7 +245,7 @@
     "title": "Camping Chair",
     "price": "20.00",
     "description": "Used camping chair, perfect for outdoor trips",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -257,7 +257,7 @@
     "title": "Free Coffee Mug",
     "price": "0.00",
     "description": "Giving away my coffee mug, good condition",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "giveaway"
@@ -269,7 +269,7 @@
     "title": "Free Python Book",
     "price": "0.00",
     "description": "Giving away my Python for beginners book. It really helped me in university",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "giveaway"
@@ -281,7 +281,7 @@
     "title": "Mistery Box",
     "price": "15.00",
     "description": "Selling a misterybox. Something of value? Maybe.",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "new",
     "tags": [
       "other"
@@ -293,7 +293,7 @@
     "title": "Outdoor Hammock",
     "price": "50.00",
     "description": "Used outdoor hammock, perfect for relaxing",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -305,7 +305,7 @@
     "title": "Portable Charger",
     "price": "25.00",
     "description": "A handy portable charger for all your electronic devices.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "electronics"
@@ -317,7 +317,7 @@
     "title": "Free Cooking Book",
     "price": "0.00",
     "description": "A free cooking book for students who want to learn quick and easy recipes.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "giveaway"
@@ -329,7 +329,7 @@
     "title": "Camping Lantern",
     "price": "20.00",
     "description": "A durable camping lantern for your outdoor adventures.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "outdoor"
@@ -341,7 +341,7 @@
     "title": "Desk Lamp",
     "price": "15.00",
     "description": "A stylish desk lamp for your study needs.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -353,7 +353,7 @@
     "title": "Concert Tickets for Coldplay",
     "price": "100.00",
     "description": "Two tickets for the upcoming Coldplay concert.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -365,7 +365,7 @@
     "title": "Free Yoga Mat",
     "price": "0.00",
     "description": "A free yoga mat for your fitness journey.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "giveaway"
@@ -377,7 +377,7 @@
     "title": "Bluetooth Headphones",
     "price": "50.00",
     "description": "High-quality Bluetooth headphones with excellent sound.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "electronics"
@@ -389,7 +389,7 @@
     "title": "Outdoor Fire Pit",
     "price": "75.00",
     "description": "An outdoor fire pit, perfect for those chilly nights.",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -401,7 +401,7 @@
     "title": "Bookshelf",
     "price": "30.00",
     "description": "A sturdy bookshelf to keep your books organized.",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -413,7 +413,7 @@
     "title": "Free Water Bottle",
     "price": "0.00",
     "description": "A free water bottle to keep you hydrated.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "giveaway"
@@ -425,7 +425,7 @@
     "title": "Toaster",
     "price": "15.00",
     "description": "A reliable toaster for your kitchen needs.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "kitchen"
@@ -437,7 +437,7 @@
     "title": "Theater Tickets for Hamilton",
     "price": "80.00",
     "description": "Two tickets for the popular musical, Hamilton.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "tickets"
@@ -449,7 +449,7 @@
     "title": "Camping Cooler",
     "price": "40.00",
     "description": "A camping cooler to keep your food and drinks cold.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "outdoor"
@@ -461,7 +461,7 @@
     "title": "Coffee Table",
     "price": "25.00",
     "description": "A stylish coffee table for your living room.",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -473,7 +473,7 @@
     "title": "MacBook Air 2020",
     "price": "500.00",
     "description": "A used MacBook Air for your study or work needs.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "electronic"
@@ -485,7 +485,7 @@
     "title": "Wireless Mouse",
     "price": "20.00",
     "description": "A wireless mouse, perfect for your computing needs.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "electronics"
@@ -497,7 +497,7 @@
     "title": "Iron Man 2 Action Figure",
     "price": "20.00",
     "description": "Selling an Iron Man 2 Action Figure still in its package.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "other"
@@ -509,7 +509,7 @@
     "title": "Dining Table",
     "price": "50.00",
     "description": "A dining table, perfect for your kitchen or dining room.",
-    "shipping": false,
+    "shipping": "not possible",
     "condition": "used",
     "tags": [
       "furniture"
@@ -521,7 +521,7 @@
     "title": "Laptop backpack",
     "price": "30.00",
     "description": "My barely used backpack for laptops.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "new",
     "tags": [
       "other"
@@ -533,7 +533,7 @@
     "title": "Free Fitness Band",
     "price": "0.00",
     "description": "A free fitness band to track your workouts.",
-    "shipping": true,
+    "shipping": "possible",
     "condition": "used",
     "tags": [
       "giveaway"
