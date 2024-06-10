@@ -39,6 +39,7 @@ function loadNavbarAndFooter() {
     };
     footerXhr.open("GET", "footer.html", true);
     footerXhr.send();
+    location.reload();
 }
 
 /**
