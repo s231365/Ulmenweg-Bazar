@@ -51,7 +51,9 @@ function validateInput(form, event) {
         event.preventDefault();
         event.stopPropagation();
     } else {
+        event.preventDefault(); // Prevent default form submission behavior
         createItem(form);
+        window.location.href = 'admin.html';
     }
 }
 
