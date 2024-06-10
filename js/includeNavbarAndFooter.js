@@ -121,4 +121,4 @@ function handleSearch() {
 
 // Call the function to load navbar and footer
 loadNavbarAndFooter();
-location.reload();
+
