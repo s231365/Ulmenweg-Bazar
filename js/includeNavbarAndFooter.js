@@ -39,7 +39,7 @@ function loadNavbarAndFooter() {
     };
     footerXhr.open("GET", "footer.html", true);
     footerXhr.send();
-    location.reload();
+    
 }
 
 /**
@@ -121,3 +121,4 @@ function handleSearch() {
 
 // Call the function to load navbar and footer
 loadNavbarAndFooter();
+location.reload();
