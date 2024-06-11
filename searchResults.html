@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="bazar.png">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/addToCart.js"></script>
-    <script src="js/includeNavbarAndFooter.js"></script>
+
     <script src="js/searchFunctions.js"></script>
     <script src="js/pagination.js"></script>
 
@@ -39,14 +40,14 @@
                 </div>
 
                 <!-- Search results -->
-                <ul id="search-results"
-                    ></ul>
+                <div id="search-results"></div>
 
                 <!-- Pagination controls -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous" onclick="changePage('prev',currentPage)">
+                            <a class="page-link" href="#" aria-label="Previous"
+                               onclick="changePage('prev',currentPage)">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -65,7 +66,7 @@
 </div>
 
 <script id="search-results-template" type="text/x-handlebars-template">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         {{#each products}}
             <div class="col my-2">
                 <div class="card h-100">
@@ -76,7 +77,7 @@
                     <div class="card-body p-4 d-flex flex-column">
                         <div class="text-center">
                             <!-- Product title-->
-                            <h5 class="card-title">{{this.title}}</h5>
+                            <a href="product.html?id={{this.id}}"><h5 class="card-title">{{this.title}}</h5></a>
                             <!-- Product price-->
                             <p class="card-text">{{this.price}}</p>
                             <!--add buttons-->
@@ -85,9 +86,10 @@
                     </div>
                     <div class="card-footer text-center">
                         <!--button opens product.html with the id-->
-                        <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
+                        <a class="btn btn-primary mb-2" href="product.html?id={{this.id}}">View</a>
                         <!--button executes addToCart()-->
-                        <button id="addToCartBtn" class="btn btn-primary" type="submit" onclick="addToCart({{this.id}}, false)">Add to
+                        <button id="addToCartBtn" class="btn btn-primary mb-2" type="submit"
+                                onclick="addToCart({{this.id}}, false)">Add to
                             cart
                         </button>
                     </div>
@@ -109,6 +111,7 @@
         initPage(currentPage);
     });
 </script>
+<script src="js/includeNavbarAndFooter.js"></script>
 </body>
 </html>
 

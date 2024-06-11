@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="bazar.png">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/handlebars.min.js"></script>
     <script src="js/addToCart.js"></script>
-    <script src="js/includeNavbarAndFooter.js"></script>
     <script src="js/purchase.js"></script>
     <script src="js/loadCart.js"></script>
 
@@ -42,7 +42,7 @@
 
 
                                     <li class="list-group-item d-flex justify-content-between lh-sm">
-                                        <img class="img-thumbnail w-25" src="{{this.image}}" alt="">
+                                        <img class="img-thumbnail w-50 h-50" src="{{this.image}}" alt="">
                                         <div>
                                             <h6 class="my-0">{{this.title}}</h6>
                                             <small class="text-muted"></small>
@@ -205,12 +205,6 @@
 </div>
 
 
-<script src="js/bootstrap.bundle.js"></script>
-
-<script src="js/loadCart.js"></script>
-
-<script src="js/purchase.js"></script>
-
 <!-- popup information-->
 <script>
     // Initialize tooltips
@@ -267,6 +261,6 @@
         }
     });
 </script>
-
+<script src="js/includeNavbarAndFooter.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <script src="js/handlebars.min.js"></script>
     <script src="js/addToCart.js"></script>
     <script src="js/sortingFunctions.js"></script>
-    <script src="js/includeNavbarAndFooter.js"></script>
+
     <script src="js/renderFunctions.js"></script>
     <script src="js/pagination.js"></script>
     <title>Ulmenweg Bazar</title>
@@ -53,7 +53,7 @@
                 </div>
 
                 <!-- load products -->
-                <ul id="product-list"></ul>
+                <div id="product-list"></div>
 
                 <!-- Pagination controls -->
                 <nav aria-label="Page navigation">
@@ -80,7 +80,7 @@
 
 <!-- Templates -->
 <script id="show-products" type="text/x-handlebars-template">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         {{#each value}}
             {{#filterProducts this}}
                 <div class="col my-2">
@@ -89,13 +89,13 @@
                                                                    alt="no data found"/></a>
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="text-center">
-                                <h5 class="card-title">{{this.title}}</h5>
+                                <a href="product.html?id={{this.id}}"><h5 class="card-title">{{this.title}}</h5></a>
                                 <p class="card-text">{{this.price}} €</p>
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <a class="btn btn-primary" href="product.html?id={{this.id}}">View</a>
-                            <button id="addToCartBtn" class="btn btn-primary" type="submit"
+                            <a class="btn btn-primary mb-2" href="product.html?id={{this.id}}">View</a>
+                            <button id="addToCartBtn " class="btn btn-primary mb-2" type="submit"
                                     onclick="addToCart({{this.id}}, false)">Add to cart
                             </button>
                         </div>
@@ -138,7 +138,7 @@
         initPage(currentPage);
     });
 </script>
-
+<script src="js/includeNavbarAndFooter.js"></script>
 
 </body>
 </html>
